@@ -53,33 +53,7 @@ client.on("message", message => {
   }
   if(message.content.toLowerCase().indexOf(config.prefix.toLowerCase()) !== 0) return;  
   var args = message.content.slice(config.prefix.length).trim().split(/ +/g);
-  var command = args.shift().toLowerCase();  
-  if (command == "help") {
-    // This code was written by Selenium. I hope it doesn't get lost on the way like a UPS package
-    message.channel.send({
-      "embed": {
-        "title": "**Sockyy Commands :robot:**",
-        "color": 1025463,
-        "thumbnail": {
-          "url": "USE SOCKYY'S PFP URL FOR THIS"
-        },
-        "fields": [
-          {
-            "name": config.prefix + "commandname",
-            "value": "Here is command description and how to use"
-          },
-          {
-            "name": config.prefix + "commandname",
-            "value": "Here is command description and how to use"
-          },
-          {
-            "name": config.prefix + "commandname",
-            "value": "Here is command description and how to use"
-          }
-        ]
-      }
-    })
-  }
+  var command = args.shift().toLowerCase();       
   if (command == "hi") {
     message.reply("Hello!");
   }
@@ -161,5 +135,45 @@ client.on("message", message => {
     serverInfo[message.guild.id].staffRole = args[0]
     message.reply("Successfully set staff ping to " + args[0] + "!")
   }
+  if (command == "help")
+  message.channel.send({
+    "embed": {
+      "title": "**Sockyy Commands **",
+      "color": 55100,
+      "thumbnail": {
+        "url": "https://ibb.co/VJpzYHH"
+      },
+      "fields": [
+        {
+          "name": config.prefix + "Hi!",
+          "value": "Have Sockyy say hello! (Say sock hi)"
+        },
+        {
+          "name": config.prefix + "Laugh",
+          "value": "Makes socky send a laughing gif (Say sock laugh)"
+        },
+        {
+          "name": config.prefix + "You're gay",
+          "value": "Have sockyy tell you about how he feels when you say that (say sock you;re gay)"
+        },
+        {
+          "name": config.prefix + "Frick you",
+          "value": "Have sockyy tell you off for cursing (say sock fuck you)"
+        },
+        {
+          "name": config.prefix + "Goodnight!",
+          "value": "Have socky wish you sweet dreams (sock goodnight)"
+        },
+        {
+          "name": config.prefix + "Ask for a hug!",
+          "value": "Have sockyy give you a hug (Say sock can i have a hug?)"
+        },
+        {
+          "name": config.prefix + "Who's amazing?",
+          "value": "Have sockyy tell you who are the 2 most amazing people (sock who are the most amazing people in the world?)"
+        }
+      ]
+    }
+  })
 });                                      
 client.login(process.env.TOKEN)
