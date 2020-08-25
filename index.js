@@ -53,7 +53,33 @@ client.on("message", message => {
   }
   if(message.content.toLowerCase().indexOf(config.prefix.toLowerCase()) !== 0) return;  
   var args = message.content.slice(config.prefix.length).trim().split(/ +/g);
-  var command = args.shift().toLowerCase();       
+  var command = args.shift().toLowerCase();  
+  if (command == "help") {
+    // This code was written by Selenium. I hope it doesn't get lost on the way like a UPS package
+    message.channel.send({
+      "embed": {
+        "title": "**Sockyy Commands :robot:**",
+        "color": 1025463,
+        "thumbnail": {
+          "url": "USE SOCKYY'S PFP URL FOR THIS"
+        },
+        "fields": [
+          {
+            "name": config.prefix + "commandname",
+            "value": "Here is command description and how to use"
+          },
+          {
+            "name": config.prefix + "commandname",
+            "value": "Here is command description and how to use"
+          },
+          {
+            "name": config.prefix + "commandname",
+            "value": "Here is command description and how to use"
+          }
+        ]
+      }
+    })
+  }
   if (command == "hi") {
     message.reply("Hello!");
   }
