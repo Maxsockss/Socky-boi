@@ -70,6 +70,7 @@ client.on("message", message => {
     message.reply("Goodnight, Sleep well!");
   }
   if (message.content.slice(config.prefix.length).trim() == "verify me") {
+    message.reply("Check your direct messages to see how you can verify yourself!")
     message.author.send("Greetings and salutations, welcome to the server! In order to be verified please read through the sections visible to you, select the roles that apply, then say Sock finished to continue with the verification!")
   }
   if (command == "finished") {
@@ -84,6 +85,21 @@ client.on("message", message => {
   if (message.content.slice(config.prefix.length).trim() == "who are the most amazing people in the world?") {
     message.channel.send ("Selenium and Whispxr! https://tenor.com/view/cute-hearts-wholesome-gif-9246757 ")
   }
+  if (command == "warnings") {
+    if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Only admins can use that command!")
+    let mentionedUser = message.mentions.users.first()
+    if (mentionedUser) {
+       message.channel.send({"embed": {
+        "title": mentionedUser.username + "'s Warnings:",
+        "description": "**Previous Warnings:**\n" + userData[mentionedUser.id].warnings.join("\n")
+      }})
+    } else {
+      message.channel.send({"embed": {
+        "title": "Your Warnings:",
+        "description": "**Previous Warnings:**\n" + userData[sender.id].warnings.join("\n")
+      }})
+    }
+  }
   if (command == "warn") {
     if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Only admins can use that command!")
     let user = client.users.cache.find(user => user.username == args[0]);
@@ -94,7 +110,7 @@ client.on("message", message => {
       userData[user.id].warnings.push(args.slice(1).join(" ") === "" ? "No reason specified." : args.slice(1).join(" "))
       message.channel.send({"embed": {
         "title": user.username + " was warned.",
-        "description": "Reason: " + args.slice(1).join(" ") + "\n**Previous Warnings:**\n" + userData[user.id].warnings.join("\n")
+        "description": "Reason: " + args.slice(1).join(" ") + "\n\n**Previous Warnings:**\n" + userData[user.id].warnings.join("\n")
       }})
     } else {
        return message.reply("I couldn't find any user!")
