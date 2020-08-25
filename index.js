@@ -58,7 +58,17 @@ client.on("message", message => {
     message.reply("Hello!");
   }
   if (command == "laugh") {
-    message.reply(["https://tenor.com/view/shinya-laugh-anime-gif-11580441","https://tenor.com/view/sasuke-sasuke-laugh-sasuke-react-naruto-anime-react-gif-17940593","https://tenor.com/view/eriko-princess-connect-re-dive-anime-laugh-gif-17341266","https://tenor.com/view/chuckle-giggle-laugh-anime-boy-gif-17768541"][Math.floor(Math.random()*3)]);
+    message.reply(["https://tenor.com/view/shinya-laugh-anime-gif-11580441","https://tenor.com/view/sasuke-sasuke-laugh-sasuke-react-naruto-anime-react-gif-17940593","https://tenor.com/view/eriko-princess-connect-re-dive-anime-laugh-gif-17341266","https://tenor.com/view/chuckle-giggle-laugh-anime-boy-gif-17768541"][Math.floor(Math.random()*4)]);
+  }
+  if (command == "kitty") {
+    message.reply(["https://tenor.com/view/cute-kitty-best-kitty-alex-cute-pp-kitty-omg-yay-cute-kitty-munchkin-kitten-gif-15917800","https://tenor.com/view/hello-hi-cute-kitten-cat-gif-14881975","https://tenor.com/view/kittens-cats-cute-gif-10978982","https://tenor.com/view/kitten-gif-9102344","https://tenor.com/view/kitten-gif-7660902","https://tenor.com/view/kittens-cute-cat-pet-cheeks-gif-16382546","https://tenor.com/view/sweet-sleep-love-kitties-hug-gif-12304006"][Math.floor(Math.random()*7)]);
+  }
+  
+  if (command == "puppy") {
+    message.reply(["https://tenor.com/view/swing-puppies-gif-10865180","https://tenor.com/view/cute-cat-dog-puppy-gif-9847428","https://tenor.com/view/please-doggy-cute-puppy-gif-6206352","https://tenor.com/view/read-book-sleepy-boring-sleep-gif-13660152","https://tenor.com/view/dog-tounge-puppy-golden-retriever-gif-7275200","https://tenor.com/view/puppy-bellyrub-husky-gif-11753153","https://tenor.com/view/dog-puppy-struggling-bowl-gif-3953506","https://tenor.com/view/funny-animals-puppy-cute-animals-dogs-cuddle-gif-11740020","https://tenor.com/view/dogs-puppies-cute-chill-gif-8475096"][Math.floor(Math.random()*9)]);
+  }
+  if (command == "scales") {
+    message.reply(["https://tenor.com/view/snake-hiss-crawling-gif-14744345","https://tenor.com/view/surprise-cereal-snake-wasnt-expecting-that-gif-4846480","https://tenor.com/view/snake-gentleman-hatehat-cute-tongue-gif-12731748","https://tenor.com/view/yassssnake-yas-snake-yass-gif-12932110","https://tenor.com/view/snakes-animal-hiss-gif-17893457","https://tenor.com/view/hiss-tiny-aww-aw-awe-gif-3960725","https://tenor.com/view/tiny-snake-going-in-circle-ring-cute-animals-gif-16117912","https://tenor.com/view/cute-snake-jawn-good-morning-wake-up-gif-17002140","https://tenor.com/view/cute-boop-snake-gif-5440100","https://tenor.com/view/spider-meme-snake-funny-cute-gif-13398395","https://tenor.com/view/snake-adorable-gif-8228527"][Math.floor(Math.random()*12)]);
   }
   if (message.content.slice(config.prefix.length).trim() == "you're gay") {
     message.channel.send("I Know")
@@ -139,7 +149,7 @@ client.on("message", message => {
   message.channel.send({
     "embed": {
       "title": "**Sockyy Commands **",
-      "color": 55100,
+      "color": 10038562,
       "thumbnail": {
         "url": "https://ibb.co/VJpzYHH"
       },
@@ -171,6 +181,18 @@ client.on("message", message => {
         {
           "name": config.prefix + "Who's amazing?",
           "value": "Have sockyy tell you who are the 2 most amazing people (sock who are the most amazing people in the world?)"
+        },
+        {
+          "name": config.prefix + "Kittens!",
+          "value": "Have sockyy send you beautiful gifs of kittens! (Say sock kitty)"
+        },
+        {
+          "name": config.prefix + "Puppies!",
+          "value": "Have sockyy send you beautiful gifs of Puppies! (Say sock puppy)"
+        },
+        {
+          "name": config.prefix + "scales",
+          "value": "Have sockyy send you beautiful gifs of Snakes! (Say sock scales)"
         }
       ]
     }
