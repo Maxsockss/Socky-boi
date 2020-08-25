@@ -85,6 +85,7 @@ client.on("message", message => {
     message.channel.send ("Selenium and Whispxr! https://tenor.com/view/cute-hearts-wholesome-gif-9246757 ")
   }
   if (command == "warn") {
+    if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Only admins can use that command!")
     let user = client.users.cache.find(user => user.username == args[0]);
     if (message.mentions.users.first()) {
         user = message.mentions.users.first()
@@ -100,16 +101,19 @@ client.on("message", message => {
     }
   }
   if (command == "null") {
+    if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Only admins can use that command!")
     let user = message.mentions.users.first()
     if (!user) return message.reply("Couldn't find the specified user!")
     userData[user.id].warnings = []
     message.reply("Successfully removed all warnings from " + user.username + "!")
   }
   if (command == "log"){
+    if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Only admins can use that command!")
     serverInfo[message.guild.id].adminChannel = message.channel.id
     message.reply("Successfully set admin channel to " + message.channel.name + "!")
   } 
   if (command == "sr"){
+    if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Only admins can use that command!")
     if (!args[0]) return message.reply("Please provide a role as your first argument to set the staff role!")
     if (args[0].slice(0, 3) != "<@&" || args[0][args[0].length - 1] != ">") return message.reply("Please input a valid role as your argument!");
     serverInfo[message.guild.id].staffRole = args[0]
