@@ -1,2 +1,4 @@
 dev.env
 node_modules/
+userData.json
+serverInfo.json
