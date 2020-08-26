@@ -161,7 +161,7 @@ client.on("message", message => {
           },
           "fields": [
             {
-              "name": config.prefix + "help general"
+              "name": config.prefix + "help general",
               "value": "Have Sockyy list out the general commands!"
             },
             {
@@ -237,7 +237,7 @@ client.on("message", message => {
               "value": "Have sockyy send you beautiful gifs of Puppies! **(Say sock puppy)**"
             },
             {
-              "name": "Snek!,
+              "name": "Snek!",
               "value": "Have sockyy send you beautiful gifs of Snakes! **(Say sock snek)**"
             }
           ]
@@ -275,6 +275,7 @@ client.on("message", message => {
           ]
         }
       })
-    }
+    } 
+  }
 });                                      
 client.login(process.env.TOKEN)
