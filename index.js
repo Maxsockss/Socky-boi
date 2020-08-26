@@ -148,61 +148,133 @@ client.on("message", message => {
     serverInfo[message.guild.id].staffRole = args[0]
     message.reply("Successfully set staff ping to " + args[0] + "!")
   }
-  if (command == "help")
-  message.channel.send({
-    "embed": {
-      "title": "**Sockyy Commands **",
-      "color": 10038562,
-      "thumbnail": {
-        "url": "https://ibb.co/VJpzYHH"
-      },
-      "fields": [
-        {
-          "name": config.prefix + "Hi!",
-          "value": "Have Sockyy say hello! **(Say sock hi)**"
-        },
-        {
-          "name": config.prefix + "Laugh",
-          "value": "Makes socky send a laughing gif **(Say sock laugh)**"
-        },
-        {
-          "name": config.prefix + "You're gay",
-          "value": "Have sockyy tell you about how he feels when you say that **(say sock you're gay)**"
-        },
-        {
-          "name": config.prefix + "Homosexual",
-          "value": "Have Socky send you some quality gay **(say sock gay)**"
-        },
-        {
-          "name": config.prefix + "Frick you",
-          "value": "Have sockyy tell you off for cursing **(say sock fuck you)**"
-        },
-        {
-          "name": config.prefix + "Goodnight!",
-          "value": "Have socky wish you sweet dreams **(sock goodnight)**"
-        },
-        {
-          "name": config.prefix + "Ask for a hug!",
-          "value": "Have sockyy give you a hug **(Say sock can i have a hug?)**"
-        },
-        {
-          "name": config.prefix + "Who's amazing?",
-          "value": "Have sockyy tell you who are the 2 most amazing people **(sock who are the most amazing people in the world?)**"
-        },
-        {
-          "name": config.prefix + "Kittens!",
-          "value": "Have sockyy send you beautiful gifs of kittens! **(Say sock kitty)**"
-        },
-        {
-          "name": config.prefix + "Puppies!",
-          "value": "Have sockyy send you beautiful gifs of Puppies! **(Say sock puppy)**"
-        },
-        {
-          "name": config.prefix + "snek",
-          "value": "Have sockyy send you beautiful gifs of Snakes! **(Say sock snek)**"
+  if (command == "help") {
+    const category = args[0].trim().toLowerCase();
+    const allowedCategories = ["general", "fun", "admin"]
+    if (!category || !allowedCategories.includes(category)) {
+      message.channel.send({
+        "embed": {
+          "title": "**Sockyy Commands **",
+          "color": 10038562,
+          "thumbnail": {
+            "url": "https://ibb.co/VJpzYHH"
+          },
+          "fields": [
+            {
+              "name": config.prefix + "help general"
+              "value": "Have Sockyy list out the general commands!"
+            },
+            {
+              "name": config.prefix + "help fun",
+              "value": "Have Sockyy list out the fun commands!"
+            },
+            {
+              "name": config.prefix + "help admin",
+              "value": "Have Sockyy list out the admin commands!"
+            }
+          ]
         }
-      ]
+      })
+    } else if (category == "general") {
+      message.channel.send({
+        "embed": {
+          "title": "**Sockyy Commands **",
+          "color": 10038562,
+          "thumbnail": {
+            "url": "https://ibb.co/VJpzYHH"
+          },
+          "fields": [
+            {
+              "name": "Hi!",
+              "value": "Have Sockyy say hello! **(Say sock hi)**"
+            },
+            {
+              "name": "Laugh",
+              "value": "Makes socky send a laughing gif **(Say sock laugh)**"
+            },
+            {
+              "name": "You're gay",
+              "value": "Have sockyy tell you about how he feels when you say that **(say sock you're gay)**"
+            },
+            {
+              "name": "Homosexual",
+              "value": "Have Socky send you some quality gay **(say sock gay)**"
+            },
+            {
+              "name": "Frick you",
+              "value": "Have sockyy tell you off for cursing **(say sock fuck you)**"
+            },
+            {
+              "name": "Goodnight!",
+              "value": "Have socky wish you sweet dreams **(sock goodnight)**"
+            },
+            {
+              "name": "Ask for a hug!",
+              "value": "Have sockyy give you a hug **(Say sock can i have a hug?)**"
+            },
+            {
+              "name": "Who's amazing?",
+              "value": "Have sockyy tell you who are the 2 most amazing people **(sock who are the most amazing people in the world?)**"
+            }
+          ]
+        }
+      })
+    } else if (category == "fun") {
+      message.channel.send({
+        "embed": {
+          "title": "**Sockyy Commands **",
+          "color": 10038562,
+          "thumbnail": {
+            "url": "https://ibb.co/VJpzYHH"
+          },
+          "fields": [
+            {
+              "name": "Kittens!",
+              "value": "Have sockyy send you beautiful gifs of kittens! **(Say sock kitty)**"
+            },
+            {
+              "name": "Puppies!",
+              "value": "Have sockyy send you beautiful gifs of Puppies! **(Say sock puppy)**"
+            },
+            {
+              "name": "Snek!,
+              "value": "Have sockyy send you beautiful gifs of Snakes! **(Say sock snek)**"
+            }
+          ]
+        }
+      })
+    } else if (category == "admin") {
+      message.channel.send({
+        "embed": {
+          "title": "**Sockyy Commands **",
+          "color": 10038562,
+          "thumbnail": {
+            "url": "https://ibb.co/VJpzYHH"
+          },
+          "fields": [
+            {
+              "name": "Admin Logs!",
+              "value": "Run this command to have Sockyy log misdemeanors inside a certain channel! **(Say sock log)**"
+            },
+            {
+              "name": "Set Staff Ping!",
+              "value": "Run this command (and ping the staff ping) to have Sockyy ping staff when needed! **(Say sock sr [STAFF PING])**"
+            },
+            {
+              "name": "Give Warnings!",
+              "value": "Have Sockyy warn a user and store it in their warnings! (Say sock warn [USERNAME/PING USER])"
+            },
+            {
+              "name": "List Warnings!",
+              "value": "Have Sockyy list the warnings of a specific user! **(say sock warnings [USERNAME/PING USER])**"
+            },
+            {
+              "name": "Remove Warnings!",
+              "value": "Have Sockyy remove somebody's warnings! **(say sock null [USERNAME/PING USER])**"
+            }
+          ]
+        }
+      })
     }
-  })
 });                                      
 client.login(process.env.TOKEN)
