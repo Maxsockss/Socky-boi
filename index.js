@@ -95,6 +95,9 @@ client.on("message", message => {
   if (message.content.slice(config.prefix.length).trim() == "who are the most amazing people in the world?") {
     message.channel.send ("Selenium and Whispxr! https://tenor.com/view/cute-hearts-wholesome-gif-9246757 ")
   }
+  if (message.content.slice(config.prefix.length).trim() == "gay") {
+    message.channel.send (["Gay for days >~< https://tenor.com/view/pride-gay-marriage-lgbt-flag-gif-4314904","He dummy thic https://tenor.com/view/big-ass-sponge-bob-square-pants-lgbt-pride-gif-4998019","Sponge says trans rights https://tenor.com/view/queer-rainbow-hands-rainbow-spongebob-squarepants-squarepants-gif-5896065","I want a pride flag :( https://tenor.com/view/lgbt-community-rainbow-flag-gif-13896550","FEEL THE HOMOSEXUALITY https://tenor.com/view/lgbt-rainbow-shine-beam-light-gif-12010762","Pride puppy https://tenor.com/view/dog-cute-happy-samoyed-puppy-gif-14818829","Sounds gay im in https://tenor.com/view/community-chang-gay-gaaaaay-queer-gif-18064201","ooo RAINBOWS https://tenor.com/view/love-heart-lgbt-rainbow-gif-14797188","Yes sorry to break it to you pal https://tenor.com/view/lgbt-rainbow-pride-gif-12040565","Damn right https://tenor.com/view/lgbt-lol-bitch-gif-11484399"][Math.floor(Math.random()*10)]);
+  }
   if (command == "warnings") {
     if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Only admins can use that command!")
     let mentionedUser = message.mentions.users.first()
@@ -156,43 +159,47 @@ client.on("message", message => {
       "fields": [
         {
           "name": config.prefix + "Hi!",
-          "value": "Have Sockyy say hello! (Say sock hi)"
+          "value": "Have Sockyy say hello! **(Say sock hi)**"
         },
         {
           "name": config.prefix + "Laugh",
-          "value": "Makes socky send a laughing gif (Say sock laugh)"
+          "value": "Makes socky send a laughing gif **(Say sock laugh)**"
         },
         {
           "name": config.prefix + "You're gay",
-          "value": "Have sockyy tell you about how he feels when you say that (say sock you;re gay)"
+          "value": "Have sockyy tell you about how he feels when you say that **(say sock you're gay)**"
+        },
+        {
+          "name": config.prefix + "Homosexual",
+          "value": "Have Socky send you some quality gay **(say sock gay)**"
         },
         {
           "name": config.prefix + "Frick you",
-          "value": "Have sockyy tell you off for cursing (say sock fuck you)"
+          "value": "Have sockyy tell you off for cursing **(say sock fuck you)**"
         },
         {
           "name": config.prefix + "Goodnight!",
-          "value": "Have socky wish you sweet dreams (sock goodnight)"
+          "value": "Have socky wish you sweet dreams **(sock goodnight)**"
         },
         {
           "name": config.prefix + "Ask for a hug!",
-          "value": "Have sockyy give you a hug (Say sock can i have a hug?)"
+          "value": "Have sockyy give you a hug **(Say sock can i have a hug?)**"
         },
         {
           "name": config.prefix + "Who's amazing?",
-          "value": "Have sockyy tell you who are the 2 most amazing people (sock who are the most amazing people in the world?)"
+          "value": "Have sockyy tell you who are the 2 most amazing people **(sock who are the most amazing people in the world?)**"
         },
         {
           "name": config.prefix + "Kittens!",
-          "value": "Have sockyy send you beautiful gifs of kittens! (Say sock kitty)"
+          "value": "Have sockyy send you beautiful gifs of kittens! **(Say sock kitty)**"
         },
         {
           "name": config.prefix + "Puppies!",
-          "value": "Have sockyy send you beautiful gifs of Puppies! (Say sock puppy)"
+          "value": "Have sockyy send you beautiful gifs of Puppies! **(Say sock puppy)**"
         },
         {
-          "name": config.prefix + "scales",
-          "value": "Have sockyy send you beautiful gifs of Snakes! (Say sock scales)"
+          "name": config.prefix + "snek",
+          "value": "Have sockyy send you beautiful gifs of Snakes! **(Say sock snek)**"
         }
       ]
     }
