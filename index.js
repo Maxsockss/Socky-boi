@@ -148,6 +148,21 @@ client.on("message", message => {
     serverInfo[message.guild.id].staffRole = args[0]
     message.reply("Successfully set staff ping to " + args[0] + "!")
   }
+  if(command == "clear") {
+    if (message.member.hasPermission("ADMINISTRATOR")) {
+      const deleteCount = parseInt(args[0], 10)+1;
+      if(!deleteCount || deleteCount < 1 || deleteCount > 100) {
+        return message.reply("You can only delete from between 1-99 messages.");
+      }
+      const fetched = await message.channel.messages.fetch({limit: deleteCount});
+      try {
+        message.channel.bulkDelete(fetched)
+      } catch (error) {
+        message.reply("I couldn't do that because of " + error + "!");
+      }
+    }
+    return
+  }
   if (command == "help") {
     const category = args[0].trim().toLowerCase();
     const allowedCategories = ["general", "fun", "admin"]
@@ -271,6 +286,10 @@ client.on("message", message => {
             {
               "name": "Remove Warnings!",
               "value": "Have Sockyy remove somebody's warnings! **(say sock null [USERNAME/PING USER])**"
+            },
+            {
+              "name": "Clear Messages!",
+              "value": "Have Sockyy delete some messages in the chat! **(say sock clear [1-99])**"
             }
           ]
         }
