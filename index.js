@@ -18,7 +18,7 @@ client.on("ready", () => {
   console.log("Bot has started!");
 })
 const Filter = require("bad-words")
-client.on("message", message => { 
+client.on("message", async message => {
   if (message.author.bot) return;
   const sender = message.author;
   if (!userData[sender.id]) {
@@ -149,7 +149,7 @@ client.on("message", message => {
     message.reply("Successfully set staff ping to " + args[0] + "!")
   }
   if(command == "clear") {
-    if (message.member.hasPermission("ADMINISTRATOR")) {
+    if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Only admins can use that command!")
       const deleteCount = parseInt(args[0], 10)+1;
       if(!deleteCount || deleteCount < 1 || deleteCount > 100) {
         return message.reply("You can only delete from between 1-99 messages.");
@@ -157,14 +157,15 @@ client.on("message", message => {
       const fetched = await message.channel.messages.fetch({limit: deleteCount});
       try {
         message.channel.bulkDelete(fetched)
-      } catch (error) {
-        message.reply("I couldn't do that because of " + error + "!");
-      }
+      } catch (error) {message.reply("I couldn't do that because of " + error + "!");
+
     }
-    return
-  }
+ }
   if (command == "help") {
-    const category = args[0].trim().toLowerCase();
+   var category = undefined
+   if (args[0]) { category=
+     args[0].trim().toLowercase();
+   }
     const allowedCategories = ["general", "fun", "admin"]
     if (!category || !allowedCategories.includes(category)) {
       message.channel.send({
