@@ -98,6 +98,9 @@ client.on("message", async message => {
   if (message.content.slice(config.prefix.length).trim() == "gay") {
     message.channel.send (["Gay for days >~< https://tenor.com/view/pride-gay-marriage-lgbt-flag-gif-4314904","He dummy thic https://tenor.com/view/big-ass-sponge-bob-square-pants-lgbt-pride-gif-4998019","Sponge says trans rights https://tenor.com/view/queer-rainbow-hands-rainbow-spongebob-squarepants-squarepants-gif-5896065","I want a pride flag :( https://tenor.com/view/lgbt-community-rainbow-flag-gif-13896550","FEEL THE HOMOSEXUALITY https://tenor.com/view/lgbt-rainbow-shine-beam-light-gif-12010762","Pride puppy https://tenor.com/view/dog-cute-happy-samoyed-puppy-gif-14818829","Sounds gay im in https://tenor.com/view/community-chang-gay-gaaaaay-queer-gif-18064201","ooo RAINBOWS https://tenor.com/view/love-heart-lgbt-rainbow-gif-14797188","Yes sorry to break it to you pal https://tenor.com/view/lgbt-rainbow-pride-gif-12040565","Damn right https://tenor.com/view/lgbt-lol-bitch-gif-11484399"][Math.floor(Math.random()*10)]);
   }
+  if (message.content.slice(config.prefix.length).trim() == "kill") {
+    message.channel.send (["I'll grab my crew! https://tenor.com/view/anime-friends-murder-joking-gif-5518806","Your wish is my command. https://tenor.com/view/mirai-nikki-stab-knife-anime-gif-17523920","Will you give me your love? https://tenor.com/view/knife-deku-toga-running-villian-gif-16607516","*giggles* Just playing! https://tenor.com/view/svirmele-stab-abitch-stab-gif-18101784","I'm gonna get a new level for this one! https://tenor.com/view/game-stab-angry-gif-16184039","no.. but how about this instead? https://tenor.com/view/jack-happy-stab-mango-gif-4674767","How it feels to step on a lego https://tenor.com/view/ouch-foot-nails-stab-pain-gif-16718477","You froggedy bitch https://tenor.com/view/aborry-stab-me-frog-gif-14813196","Oh no, not teddy.. https://tenor.com/view/smile-grin-stab-doll-evil-face-gif-16714822","Lets play doll! im the left and you're the right!"][Math.floor(Math.random()*10)]);
+  }
   if (command == "warnings") {
     if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Only admins can use that command!")
     let mentionedUser = message.mentions.users.first()
@@ -255,6 +258,10 @@ client.on("message", async message => {
             {
               "name": "Snek!",
               "value": "Have sockyy send you beautiful gifs of Snakes! **(Say sock snek)**"
+            },
+            {
+              "name": "Murder",
+              "value": "Have Sockyy commit a murder for you! **(Say sock kill)**"
             }
           ]
         }
