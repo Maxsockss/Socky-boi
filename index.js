@@ -166,9 +166,8 @@ client.on("message", async message => {
  }
   if (command == "help") {
    var category = undefined
-   if (args[0]) { category=
-     args[0].trim().toLowercase();
-   }
+   if (args[0]) { category = args[0].trim().toLowerCase();
+  }
     const allowedCategories = ["general", "fun", "admin"]
     if (!category || !allowedCategories.includes(category)) {
       message.channel.send({
