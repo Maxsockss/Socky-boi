@@ -1,3 +1,6 @@
+require("./db/mongoose")
+const User = require("./models/user")
+const Server = require("./models/server")
 const Discord = require("discord.js");
 const config = require("./config.json");
 const fs = require('fs');
@@ -14,6 +17,15 @@ app.listen(process.env.PORT || 3000, () => {
 
 var userData = JSON.parse(fs.readFileSync('userData.json'));
 var serverInfo = JSON.parse(fs.readFileSync('serverInfo.json'));
+client.on("guildMemberAdd", async member => {
+  let user = member.user
+  const newUser = new User({discordId: user.id})
+  await newUser.save()
+})
+client.on("guildMemberRemove", async member => {
+  let user = member.user
+  await User.findOneAndRemove({discordId: user.id})
+})
 client.on("ready", () => {
   console.log("Bot has started!");
 })
@@ -21,6 +33,11 @@ const Filter = require("bad-words")
 client.on("message", async message => {
   if (message.author.bot) return;
   const sender = message.author;
+  const dbUser = await User.findOne({discordId: sender.id})
+  if (!dbUser) {
+    const newUser = new User({discordId: sender.id})
+    await newUser.save()
+  }
   if (!userData[sender.id]) {
     userData[sender.id] = {
       warnings : []
