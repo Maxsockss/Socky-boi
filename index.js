@@ -58,7 +58,7 @@ client.on("message", async message => {
   const sender = message.author;
   const dbUser = await User.findOne({discordId: sender.id})
   if (!dbUser) {
-    const newUser = new User({discordId: sender.id, username: user.username})
+    const newUser = new User({discordId: sender.id, username: sender.username})
     await newUser.save()
   }
 
