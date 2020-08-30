@@ -33,7 +33,7 @@ client.on("guildDelete", async guild => {
 // This code runs when a member joins a server.
 client.on("guildMemberAdd", async member => {
   let user = member.user
-  const newUser = new User({discordId: user.id})
+  const newUser = new User({discordId: user.id, username: user.username})
   await newUser.save()
 })
 
@@ -58,13 +58,13 @@ client.on("message", async message => {
   const sender = message.author;
   const dbUser = await User.findOne({discordId: sender.id})
   if (!dbUser) {
-    const newUser = new User({discordId: sender.id})
+    const newUser = new User({discordId: sender.id, username: user.username})
     await newUser.save()
   }
 
   // Profanity filter.
   const filter = new Filter()
-  filter.removeWords("shit", "damn", "ass", "fuck", "crap")
+  filter.removeWords("shit", "damn", "ass", "fuck", "crap","god")
   if (filter.isProfane(message.content)) {
     const currentServer = await Server.findOne({discordId: message.guild.id})
     if (!currentServer.adminChannel) return

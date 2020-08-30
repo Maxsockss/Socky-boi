@@ -2,10 +2,14 @@ const mongoose = require("mongoose")
 
 const userSchema = mongoose.Schema({
     discordId: {
-        type: Number,
-        required: true
+    type: Number,
+     required: true
     },
-    joinDate: {
+    username: {
+        type: String,
+      required: true
+    },
+      joinDate: {
       type: Date, 
       default: new Date()
     },
