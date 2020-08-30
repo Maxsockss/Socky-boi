@@ -15,8 +15,7 @@ app.listen(process.env.PORT || 3000, () => {
   console.log("Website is now hosting for Sock bot. :)")
 })
 
-var userData = JSON.parse(fs.readFileSync('userData.json'));
-var serverInfo = JSON.parse(fs.readFileSync('serverInfo.json'));
+
 client.on("guildMemberAdd", async member => {
   let user = member.user
   const newUser = new User({discordId: user.id})
@@ -38,23 +37,7 @@ client.on("message", async message => {
     const newUser = new User({discordId: sender.id})
     await newUser.save()
   }
-  if (!userData[sender.id]) {
-    userData[sender.id] = {
-      warnings : []
-    }
-  }
-  if (!serverInfo[message.guild.id]) {
-    serverInfo[message.guild.id] = {
-      adminChannel: undefined,
-      staffRole:undefined
-    }
-  }
-  fs.writeFile('userData.json', JSON.stringify(userData), (err) => {
-    if (err) console.error(err);
-  })
-  fs.writeFile('serverInfo.json', JSON.stringify(serverInfo), (err) => {
-    if (err) console.error(err);
-  })
+
   const filter = new Filter()
   filter.removeWords("shit", "damn", "ass", "fuck", "crap")
   
