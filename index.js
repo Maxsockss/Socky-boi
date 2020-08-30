@@ -3,34 +3,47 @@ const User = require("./models/user")
 const Server = require("./models/server")
 const Discord = require("discord.js");
 const config = require("./config.json");
+const Filter = require("bad-words")
 const fs = require('fs');
 const client = new Discord.Client();
 const express = require("express")
+
+// Starting up our website.
 const app = express()
 app.get("/", (req, res) => {
   res.sendStatus(200)
 })
 
+// Making our website listen on a PORT.
 app.listen(process.env.PORT || 3000, () => {
   console.log("Website is now hosting for Sock bot. :)")
 })
 
-
+// This code runs when a member joins a server.
 client.on("guildMemberAdd", async member => {
   let user = member.user
   const newUser = new User({discordId: user.id})
   await newUser.save()
 })
+
+// This code runs when a member leaves a server.
 client.on("guildMemberRemove", async member => {
   let user = member.user
   await User.findOneAndRemove({discordId: user.id})
 })
+
+// This code runs when the bot is ready.
 client.on("ready", () => {
   console.log("Bot has started!");
 })
-const Filter = require("bad-words")
+
+// This code runs everytime a user sends a message.
 client.on("message", async message => {
+  
+  // If the user is a bot, we don't run any of our precious code.
   if (message.author.bot) return;
+  
+  // Get the user in the database. If they don't exist, create them.
   const sender = message.author;
   const dbUser = await User.findOne({discordId: sender.id})
   if (!dbUser) {
@@ -38,9 +51,9 @@ client.on("message", async message => {
     await newUser.save()
   }
 
+  // Profanity filter.
   const filter = new Filter()
   filter.removeWords("shit", "damn", "ass", "fuck", "crap")
-  
   if (filter.isProfane(message.content)) {
     if (!serverInfo[message.guild.id].adminChannel) return;
     let targetChannel = message.guild.channels.cache.find(channel => channel.id == serverInfo[message.guild.id].adminChannel);
@@ -51,9 +64,14 @@ client.on("message", async message => {
     message.reply("Your message has been deleted and is being audited by staff.")
     message.delete()
   }
+  
+  // If the message doesn't begin with our prefix, we stop the code here.
   if(message.content.toLowerCase().indexOf(config.prefix.toLowerCase()) !== 0) return;  
+  
   var args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   var command = args.shift().toLowerCase();       
+  
+  // A bunch of commands that look for responses.
   if (command == "hi") {
     message.reply("Hello!");
   }
