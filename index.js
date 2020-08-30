@@ -55,11 +55,9 @@ async function hasAdministrator(member, guild) {
     return member.hasPermission("ADMINISTRATOR")
   } else {
     let staffRoleId = selectedServer.staffRole.substr(3, selectedServer.staffRole.length - 4)
-    console.log(member.roles.cache)
-    if (member.roles.cache.some(role => role.id === staffRoleId)) {
+    if (member.roles.cache.some(role => role.id == staffRoleId)) {
       return true;
     } else {
-      console.log("bamboozled")
       return false;
     }
   }
