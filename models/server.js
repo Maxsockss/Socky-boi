@@ -6,12 +6,10 @@ const serverSchema = mongoose.Schema({
       required: true
     },
     adminChannel: {
-      type: Number,
-      required: true
+      type: Number
     },
     staffPrefix: {
-      type: Number,
-      required: true
+      type: String
     }
 })
 

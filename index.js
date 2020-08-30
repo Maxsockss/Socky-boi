@@ -19,6 +19,17 @@ app.listen(process.env.PORT || 3000, () => {
   console.log("Website is now hosting for Sock bot. :)")
 })
 
+// This code runs when the bot joins a new server.
+client.on("guildCreate", async guild => {
+  let newGuild = new Server({discordId: guild.id})
+  await newGuild.save()
+});
+
+// This code runs when the bot leaves a server.
+client.on("guildDelete", async guild => {
+  await Server.findOneAndRemove({discordId: guild.id})
+});
+
 // This code runs when a member joins a server.
 client.on("guildMemberAdd", async member => {
   let user = member.user
@@ -55,8 +66,9 @@ client.on("message", async message => {
   const filter = new Filter()
   filter.removeWords("shit", "damn", "ass", "fuck", "crap")
   if (filter.isProfane(message.content)) {
-    if (!serverInfo[message.guild.id].adminChannel) return;
-    let targetChannel = message.guild.channels.cache.find(channel => channel.id == serverInfo[message.guild.id].adminChannel);
+    const currentServer = await Server.findOne({discordId: message.guild.id})
+    if (!currentServer.adminChannel) return
+    let targetChannel = message.guild.channels.cache.find(channel => channel.id == currentServer.adminChannel);
     targetChannel.send({"embed": {
       "title": "Bad Word Detected!",
       "description":message.author.username + " said " + message.content + ". Warn them if you must."
@@ -102,10 +114,11 @@ client.on("message", async message => {
     message.author.send("Greetings and salutations, welcome to the server! In order to be verified please read through the sections visible to you, select the roles that apply, then say Sock finished to continue with the verification!")
   }
   if (command == "finished") {
-    if (!serverInfo[message.guild.id].adminChannel) return message.reply("The admin channel has not been set yet!");
-    if (!serverInfo[message.guild.id].staffRole) return message.reply("The staff ping has not been set yet!")
-    let targetChannel = message.guild.channels.cache.find(channel => channel.id == serverInfo[message.guild.id].adminChannel);
-    targetChannel.send(serverInfo[message.guild.id].staffRole + " " + message.author.username + " is ready to be verified!")
+    const currentServer = await Server.findOne({discordId: message.guild.id})
+    if (!currentServer.adminChannel) return message.reply("The admin channel has not been set yet!");
+    if (!currentServer.staffRole) return message.reply("The staff ping has not been set yet!")
+    let targetChannel = message.guild.channels.cache.find(channel => channel.id == currentServer.adminChannel);
+    targetChannel.send(currentServer.staffRole + " " + message.author.username + " is ready to be verified!")
   }
   if (message.content.slice(config.prefix.length).trim() == "can i have a hug?") {
     message.channel.send (["Of course! Free hugs for all! https://tenor.com/view/milk-and-mocha-hug-cute-kawaii-love-gif-12535134","https://tenor.com/view/hug-anime-love-gif-7324587","https://tenor.com/view/hug-darker-than-black-anime-gif-13976210","https://tenor.com/view/seraph-love-hug-hugging-anime-gif-4900166"][Math.floor(Math.random()*4)]);
@@ -123,14 +136,16 @@ client.on("message", async message => {
     if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Only admins can use that command!")
     let mentionedUser = message.mentions.users.first()
     if (mentionedUser) {
+      const selectedUser = await User.findOne({discordId: mentionedUser.id})
        message.channel.send({"embed": {
         "title": mentionedUser.username + "'s Warnings:",
-        "description": "**Previous Warnings:**\n" + userData[mentionedUser.id].warnings.join("\n")
+        "description": "**Previous Warnings:**\n" + (selectedUser.warnings.map((warning) => warning.warning).join("\n") || "This user has no previous warnings.")
       }})
     } else {
+      const yourUser = await User.findOne({discordId: sender.id})
       message.channel.send({"embed": {
         "title": "Your Warnings:",
-        "description": "**Previous Warnings:**\n" + userData[sender.id].warnings.join("\n")
+        "description": "**Previous Warnings:**\n" + (yourUser.warnings.map((warning) => warning.warning).join("\n") || "This user has no previous warnings.")
       }})
     }
   }
@@ -141,10 +156,14 @@ client.on("message", async message => {
         user = message.mentions.users.first()
     }
     if (user) {
-      userData[user.id].warnings.push(args.slice(1).join(" ") === "" ? "No reason specified." : args.slice(1).join(" "))
+      let selectedUser = await User.findOne({discordId: user.id})
+      selectedUser.warnings.push({
+        warning: args.slice(1).join(" ") || "No reason specified."
+      })
+      await selectedUser.save()
       message.channel.send({"embed": {
         "title": user.username + " was warned.",
-        "description": "Reason: " + args.slice(1).join(" ") + "\n\n**Previous Warnings:**\n" + userData[user.id].warnings.join("\n")
+        "description": "Reason: " + args.slice(1).join(" ") + "\n\n**Previous Warnings:**\n" + selectedUser.warnings.map((warning) => warning.warning).join("\n")
       }})
     } else {
        return message.reply("I couldn't find any user!")
@@ -154,19 +173,25 @@ client.on("message", async message => {
     if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Only admins can use that command!")
     let user = message.mentions.users.first()
     if (!user) return message.reply("Couldn't find the specified user!")
-    userData[user.id].warnings = []
+    const selectedUser = await User.findOne({discordId: user.id})
+    selectedUser.warnings = []
+    await selectedUser.save()
     message.reply("Successfully removed all warnings from " + user.username + "!")
   }
   if (command == "log"){
     if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Only admins can use that command!")
-    serverInfo[message.guild.id].adminChannel = message.channel.id
+    const currentServer = await Server.findOne({discordId: message.guild.id})
+    currentServer.adminChannel = message.channel.id
+    await currentServer.save()
     message.reply("Successfully set admin channel to " + message.channel.name + "!")
   } 
   if (command == "sr"){
     if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Only admins can use that command!")
     if (!args[0]) return message.reply("Please provide a role as your first argument to set the staff role!")
     if (args[0].slice(0, 3) != "<@&" || args[0][args[0].length - 1] != ">") return message.reply("Please input a valid role as your argument!");
-    serverInfo[message.guild.id].staffRole = args[0]
+    let currentServer = await Server.findOne({discordId: message.guild.id})
+    currentServer.staffRole = args[0]
+    await currentServer.save()
     message.reply("Successfully set staff ping to " + args[0] + "!")
   }
   if(command == "clear") {
