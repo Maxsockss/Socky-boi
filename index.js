@@ -10,8 +10,9 @@ const express = require("express")
 
 // Starting up our website.
 const app = express()
-app.get("/", (req, res) => {
-  res.sendStatus(200)
+app.get("/", async (req, res) => {
+  const userInfo = await User.find({})
+  res.status(200).send(userInfo.join("\n"))
 })
 
 // Making our website listen on a PORT.
