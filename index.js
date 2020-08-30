@@ -48,6 +48,22 @@ client.on("ready", () => {
   console.log("Bot has started!");
 })
 
+// Checks if the user has the staff role in the specified server.
+async function hasAdministrator(member, guild) {
+  const selectedServer = await Server.findOne({discordId: guild.id})
+  if (!selectedServer.staffRole) {
+    return message.member.hasPermission("ADMINISTRATOR")
+  } else {
+    let staffRoleId = selectedServer.staffRole.substr(3, role.length - 4)
+    if (message.member.roles.some(role => role.id === staffRoleId)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  return false;
+}
+
 // This code runs everytime a user sends a message.
 client.on("message", async message => {
   
@@ -133,7 +149,7 @@ client.on("message", async message => {
     message.channel.send (["I'll grab my crew! https://tenor.com/view/anime-friends-murder-joking-gif-5518806","Your wish is my command. https://tenor.com/view/mirai-nikki-stab-knife-anime-gif-17523920","Will you give me your love? https://tenor.com/view/knife-deku-toga-running-villian-gif-16607516","*giggles* Just playing! https://tenor.com/view/svirmele-stab-abitch-stab-gif-18101784","I'm gonna get a new level for this one! https://tenor.com/view/game-stab-angry-gif-16184039","no.. but how about this instead? https://tenor.com/view/jack-happy-stab-mango-gif-4674767","How it feels to step on a lego https://tenor.com/view/ouch-foot-nails-stab-pain-gif-16718477","You froggedy bitch https://tenor.com/view/aborry-stab-me-frog-gif-14813196","Oh no, not teddy.. https://tenor.com/view/smile-grin-stab-doll-evil-face-gif-16714822","Lets play doll! im the left and you're the right!"][Math.floor(Math.random()*10)]);
   }
   if (command == "warnings") {
-    if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Only admins can use that command!")
+    if (!hasAdministrator(message.member, message.guild)) return message.reply("Only admins can use that command!")
     let mentionedUser = message.mentions.users.first()
     if (mentionedUser) {
       const selectedUser = await User.findOne({discordId: mentionedUser.id})
@@ -150,7 +166,7 @@ client.on("message", async message => {
     }
   }
   if (command == "warn") {
-    if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Only admins can use that command!")
+    if (!hasAdministrator(message.member, message.guild)) return message.reply("Only admins can use that command!")
     let user = client.users.cache.find(user => user.username == args[0]);
     if (message.mentions.users.first()) {
         user = message.mentions.users.first()
@@ -170,7 +186,7 @@ client.on("message", async message => {
     }
   }
   if (command == "null") {
-    if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Only admins can use that command!")
+    if (!hasAdministrator(message.member, message.guild)) return message.reply("Only admins can use that command!")
     let user = message.mentions.users.first()
     if (!user) return message.reply("Couldn't find the specified user!")
     const selectedUser = await User.findOne({discordId: user.id})
@@ -179,14 +195,14 @@ client.on("message", async message => {
     message.reply("Successfully removed all warnings from " + user.username + "!")
   }
   if (command == "log"){
-    if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Only admins can use that command!")
+    if (!hasAdministrator(message.member, message.guild)) return message.reply("Only admins can use that command!")
     const currentServer = await Server.findOne({discordId: message.guild.id})
     currentServer.adminChannel = message.channel.id
     await currentServer.save()
     message.reply("Successfully set admin channel to " + message.channel.name + "!")
   } 
   if (command == "sr"){
-    if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Only admins can use that command!")
+    if (!hasAdministrator(message.member, message.guild)) return message.reply("Only admins can use that command!")
     if (!args[0]) return message.reply("Please provide a role as your first argument to set the staff role!")
     if (args[0].slice(0, 3) != "<@&" || args[0][args[0].length - 1] != ">") return message.reply("Please input a valid role as your argument!");
     let currentServer = await Server.findOne({discordId: message.guild.id})
@@ -195,7 +211,7 @@ client.on("message", async message => {
     message.reply("Successfully set staff ping to " + args[0] + "!")
   }
   if(command == "clear") {
-    if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Only admins can use that command!")
+    if (!hasAdministrator(message.member, message.guild)) return message.reply("Only admins can use that command!")
       const deleteCount = parseInt(args[0], 10)+1;
       if(!deleteCount || deleteCount < 1 || deleteCount > 100) {
         return message.reply("You can only delete from between 1-99 messages.");
