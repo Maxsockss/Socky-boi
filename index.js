@@ -52,16 +52,17 @@ client.on("ready", () => {
 async function hasAdministrator(member, guild) {
   const selectedServer = await Server.findOne({discordId: guild.id})
   if (!selectedServer.staffRole) {
-    return message.member.hasPermission("ADMINISTRATOR")
+    return member.hasPermission("ADMINISTRATOR")
   } else {
-    let staffRoleId = selectedServer.staffRole.substr(3, role.length - 4)
-    if (message.member.roles.some(role => role.id === staffRoleId)) {
+    let staffRoleId = selectedServer.staffRole.substr(3, selectedServer.staffRole.length - 4)
+    console.log(member.roles.cache)
+    if (member.roles.cache.some(role => role.id === staffRoleId)) {
       return true;
     } else {
+      console.log("bamboozled")
       return false;
     }
   }
-  return false;
 }
 
 // This code runs everytime a user sends a message.

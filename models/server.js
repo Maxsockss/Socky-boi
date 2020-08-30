@@ -8,7 +8,7 @@ const serverSchema = mongoose.Schema({
     adminChannel: {
       type: Number
     },
-    staffPrefix: {
+    staffRole: {
       type: String
     }
 })

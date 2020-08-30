@@ -7,7 +7,6 @@ const userSchema = mongoose.Schema({
     },
     username: {
         type: String,
-      required: true
     },
       joinDate: {
       type: Date, 
