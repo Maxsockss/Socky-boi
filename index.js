@@ -51,6 +51,7 @@ client.on("ready", () => {
 
 // Checks if the user has the staff role in the specified server.
 async function hasAdministrator(member, guild) {
+  if (member.hasPermission("ADMINISTRATOR")) return true
   const selectedServer = await Server.findOne({discordId: guild.id})
   if (!selectedServer.staffRole) {
     return member.hasPermission("ADMINISTRATOR")
@@ -77,9 +78,23 @@ client.on("message", async message => {
     const newUser = new User({discordId: sender.id, username: sender.username})
     await newUser.save()
   }
-
+  //Trigger words filter.
+  const triggerWords = ["gun", "kill","drugs","alcohol","pills",]
+  const hasTriggerWord = triggerWords.some((word) => message.content.toLowerCase().includes(word))
+  if (hasTriggerWord){
+    const currentServer = await Server.findOne({discordId: message.guild.id})
+    if (!currentServer.adminChannel) return
+    let targetChannel = message.guild.channels.cache.find(channel => channel.id == currentServer.adminChannel);
+    targetChannel.send({"embed": {
+    "title": "Bad Word Detected!",
+    "description":message.author.username + " said " + message.content + ". Warn them if you must."
+     }}) 
+     message.delete()
+    return message.reply("Please don't say that as it could be triggering, :(  your message is being audited by staff and you may recieve a warning")
+   }
   // Profanity filter.
   const filter = new Filter()
+  filter.addWords("Tranny","Furfag","Sex","hoe","Yiff","Murrsuit","mursuit",)
   filter.removeWords("shit", "damn", "ass", "fuck", "crap","god")
   if (filter.isProfane(message.content)) {
     const currentServer = await Server.findOne({discordId: message.guild.id})
@@ -89,7 +104,7 @@ client.on("message", async message => {
       "title": "Bad Word Detected!",
       "description":message.author.username + " said " + message.content + ". Warn them if you must."
     }})
-    message.reply("Your message has been deleted and is being audited by staff.")
+    message.reply("Your message violates our rules and has been deleted and is being audited by staff and you may recieve a warning. Please review the rules.")
     message.delete()
   }
   
