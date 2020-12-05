@@ -246,7 +246,7 @@ client.on("message", async message => {
    if (args[0]) { 
      category = args[0].trim().toLowerCase();
     }
-    const allowedCategories = ["general", "fun", "admin"]
+    const allowedCategories = ["general", "fun", "admin","support"]
     if (!category || !allowedCategories.includes(category)) {
       message.channel.send({
         "embed": {
@@ -257,19 +257,19 @@ client.on("message", async message => {
           },
           "fields": [
             {
-              "name": config.prefix + "help general",
+              "name": config.prefix + "lhelp general",
               "value": "Have the bot list out the general commands!"
            },
             {
-              "name": config.prefix + "help fun",
+              "name": config.prefix + "lhelp fun",
               "value": "Have the bot list out the fun commands!"
             },
             {
-              "name": config.prefix + "help admin",
+              "name": config.prefix + "lhelp admin",
               "value": "Have bot list out the admin commands!"
             },
             {
-              "name": config.prefix + "support",
+              "name": config.prefix + "lhelp support",
               "value": "Have bot list out the support commands!"
             }
           ]
