@@ -241,7 +241,7 @@ client.on("message", async message => {
     message.reply("Successfully sent message to " + count + " users!");
   }
 
-  if (command == "help") {
+  if (command == "Lhelp") {
    var category = undefined
    if (args[0]) { 
      category = args[0].trim().toLowerCase();
