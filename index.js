@@ -234,7 +234,7 @@ client.on("message", async message => {
     message.guild.members.cache.forEach(member => { member.user.send(args.join(" ")); count++; })
     message.reply("Successfully sent message to " + count + " users!");
   }
-  
+
   if (command == "help") {
    var category = undefined
    if (args[0]) { 
@@ -348,27 +348,31 @@ client.on("message", async message => {
           "fields": [
             {
               "name": "Admin Logs!",
-              "value": "Run this command to have Sockyy log misdemeanors inside a certain channel! **(Say sock log)**"
+              "value": "Run this command to have Sockyy log misdemeanors inside a certain channel! **(Say ?log)**"
             },
             {
               "name": "Set Staff Ping!",
-              "value": "Run this command (and ping the staff ping) to have Sockyy ping staff when needed! **(Say sock sr [STAFF PING])**"
+              "value": "Run this command (and ping the staff ping) to have Sockyy ping staff when needed! **(Say ?sr [STAFF PING])**"
             },
             {
               "name": "Give Warnings!",
-              "value": "Have Sockyy warn a user and store it in their warnings! (Say sock warn [USERNAME/PING USER])"
+              "value": "Have Sockyy warn a user and store it in their warnings! (Say ?warn [USERNAME/PING USER])"
             },
             {
               "name": "List Warnings!",
-              "value": "Have Sockyy list the warnings of a specific user! **(say sock warnings [USERNAME/PING USER])**"
+              "value": "Have Sockyy list the warnings of a specific user! **(say ?warnings [USERNAME/PING USER])**"
             },
             {
               "name": "Remove Warnings!",
-              "value": "Have Sockyy remove somebody's warnings! **(say sock null [USERNAME/PING USER])**"
+              "value": "Have the bot remove somebody's warnings! **(say ?null [USERNAME/PING USER])**"
+            },
+            {
+              "name": "Announcement",
+              "value": "Have the bot send all the members an announcement to their dms **(say ?announce [message])**"
             },
             {
               "name": "Clear Messages!",
-              "value": "Have Sockyy delete some messages in the chat! **(say sock clear [1-99])**"
+              "value": "Have Sockyy delete some messages in the chat! **(say ?clear [1-99])**"
             }
           ]
         }
