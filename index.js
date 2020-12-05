@@ -142,6 +142,9 @@ client.on("message", async message => {
   if (message.content.slice(config.prefix.length).trim() == "hotlines") {
     message.channel.send (["**Trevor project-** https://www.thetrevorproject.org/get-help-now/  **Trans helpline-** https://www.translifeline.org/hotline  **The Befrienders Worldwide member center-** https://www.befrienders.org/  **Suicide hotlines (international)-** http://suicide.org/international-suicide-hotlines.html"]);
   }
+  if (message.content.slice(config.prefix.length).trim() == "inspiring") {
+    message.channel.send (["Keep your head up, you got this! https://tenor.com/view/smooth-sea-quote-quotes-inspirational-inspiration-gif-17364919","https://tenor.com/view/quote-love-sayings-inspirational-lovequotes-gif-13213754","https://tenor.com/view/deep-dark-darkquotes-deepquotes-gif-14621617","https://tenor.com/view/inspirational-quote-inspirational-dont-lose-hope-hope-stars-come-out-gif-17365896","https://tenor.com/view/aahandfield-drewisme-strong-inspirational-inspirational-quotes-gif-17496352","https://tenor.com/view/you-can-do-anything-inspirational-cracker-gif-11101966"][Math.floor(Math.random()*6)]);
+  }
   if (command == "warnings") {
     let isAdmin = await hasAdministrator(message.member, message.guild)
     if (!isAdmin) return message.reply("Only admins can use that command!")
@@ -334,9 +337,13 @@ client.on("message", async message => {
               "value": "Have the bot send you beautiful gifs of Snakes! **(Say ?snek)**"
             },
             {
-            "name": "Go to sleep!",
-            "value": "Have the bot tell you to go to sleep **(Say ?gts)**"
-          },
+              "name": "Go to sleep!",
+              "value": "Have the bot tell you to go to sleep **(Say ?gts)**"
+            },
+            {
+              "name": "Inspiring quotes",
+              "value": "Have the bot offer you some words of wisdom**(Say ?inspiring)**"
+            },
           ]
         }
       })
