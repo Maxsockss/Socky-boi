@@ -45,6 +45,7 @@ client.on("guildMemberRemove", async member => {
 
 // This code runs when the bot is ready.
 client.on("ready", () => {
+  client.user.setActivity('You are gay', { type: 'PLAYING' });
   console.log("Bot has started!");
 })
 
@@ -79,7 +80,7 @@ client.on("message", async message => {
   }
   
   //Trigger words filter.
-  const triggerWords = ["gun", "kill","drugs","alcohol","pills","tranny","furfag","sex","hoe","yiff","murrsuit","mursuit"]
+  const triggerWords = []
   const hasTriggerWord = triggerWords.some((word) => message.content.toLowerCase().includes(word))
   if (hasTriggerWord){
     const currentServer = await Server.findOne({discordId: message.guild.id})
@@ -125,22 +126,12 @@ client.on("message", async message => {
   if (command == "goodnight") {
     message.reply("Goodnight, Sleep well!");
   }
-  if (message.content.slice(config.prefix.length).trim() == "verify me") {
-    message.reply("Check your direct messages to see how you can verify yourself!")
-    message.author.send("Greetings and salutations, welcome to the server! In order to be verified please read through the sections visible to you, select the roles that apply, then say Sock finished to continue with the verification!")
-  }
-  if (command == "finished") {
-    const currentServer = await Server.findOne({discordId: message.guild.id})
-    if (!currentServer.adminChannel) return message.reply("The admin channel has not been set yet!");
-    if (!currentServer.staffRole) return message.reply("The staff ping has not been set yet!")
-    let targetChannel = message.guild.channels.cache.find(channel => channel.id == currentServer.adminChannel);
-    targetChannel.send(currentServer.staffRole + " " + message.author.username + " is ready to be verified!")
-  }
+  
   if (message.content.slice(config.prefix.length).trim() == "can i have a hug?") {
     message.channel.send (["Of course! Free hugs for all! https://tenor.com/view/milk-and-mocha-hug-cute-kawaii-love-gif-12535134","https://tenor.com/view/hug-anime-love-gif-7324587","https://tenor.com/view/hug-darker-than-black-anime-gif-13976210","https://tenor.com/view/seraph-love-hug-hugging-anime-gif-4900166"][Math.floor(Math.random()*4)]);
   }
   if (message.content.slice(config.prefix.length).trim() == "who are the most amazing people in the world?") {
-    message.channel.send ("Selenium and Whispxr! https://tenor.com/view/cute-hearts-wholesome-gif-9246757 ")
+    message.channel.send ("Lillith and Selenium! https://tenor.com/view/cute-hearts-wholesome-gif-9246757 ")
   }
   if (message.content.slice(config.prefix.length).trim() == "gay") {
     message.channel.send (["Gay for days >~< https://tenor.com/view/pride-gay-marriage-lgbt-flag-gif-4314904","He dummy thic https://tenor.com/view/big-ass-sponge-bob-square-pants-lgbt-pride-gif-4998019","Sponge says trans rights https://tenor.com/view/queer-rainbow-hands-rainbow-spongebob-squarepants-squarepants-gif-5896065","I want a pride flag :( https://tenor.com/view/lgbt-community-rainbow-flag-gif-13896550","FEEL THE HOMOSEXUALITY https://tenor.com/view/lgbt-rainbow-shine-beam-light-gif-12010762","Pride puppy https://tenor.com/view/dog-cute-happy-samoyed-puppy-gif-14818829","Sounds gay im in https://tenor.com/view/community-chang-gay-gaaaaay-queer-gif-18064201","ooo RAINBOWS https://tenor.com/view/love-heart-lgbt-rainbow-gif-14797188","Yes sorry to break it to you pal https://tenor.com/view/lgbt-rainbow-pride-gif-12040565","Damn right https://tenor.com/view/lgbt-lol-bitch-gif-11484399"][Math.floor(Math.random()*10)]);
@@ -230,8 +221,17 @@ client.on("message", async message => {
   }  
   }
   if (command === "announce") {
+    let isAdmin = await hasAdministrator(message.member, message.guild)
+    if (!isAdmin) return message.reply("Only admins can use that command!")
     let count = 0;
-    message.guild.members.cache.forEach(member => { member.user.send(args.join(" ")); count++; })
+    message.guild.members.cache.forEach(member => { 
+      if (!member.user.bot) {
+        member.user.send(args.join(" ")).catch(error => {
+          message.channel.send("Something went wrong while I tried to send " + member.user.username + "a DM");
+        }); 
+        count++; 
+      }
+    })
     message.reply("Successfully sent message to " + count + " users!");
   }
 
@@ -244,23 +244,23 @@ client.on("message", async message => {
     if (!category || !allowedCategories.includes(category)) {
       message.channel.send({
         "embed": {
-          "title": "**Sockyy Commands **",
+          "title": "**Lgbtstripes Commands **",
           "color": 10038562,
           "thumbnail": {
-            "url": "https://ibb.co/VJpzYHH"
+            "url": "https://i.ibb.co/Qd897Py/b4844ea372818413347012c27e194798.jpg"
           },
           "fields": [
             {
               "name": config.prefix + "help general",
-              "value": "Have Sockyy list out the general commands!"
-            },
+              "value": "Have the bot list out the general commands!"
+           },
             {
               "name": config.prefix + "help fun",
-              "value": "Have Sockyy list out the fun commands!"
+              "value": "Have the bot list out the fun commands!"
             },
             {
               "name": config.prefix + "help admin",
-              "value": "Have Sockyy list out the admin commands!"
+              "value": "Have bot list out the admin commands!"
             }
           ]
         }
@@ -268,43 +268,43 @@ client.on("message", async message => {
     } else if (category == "general") {
       message.channel.send({
         "embed": {
-          "title": "**Sockyy Commands **",
+          "title": "**Lgbtstripes Commands **",
           "color": 10038562,
           "thumbnail": {
-            "url": "https://ibb.co/VJpzYHH"
+            "url": "https://i.ibb.co/Qd897Py/b4844ea372818413347012c27e194798.jpg"
           },
           "fields": [
             {
               "name": "Hi!",
-              "value": "Have Sockyy say hello! **(Say sock hi)**"
+              "value": "Have the bot say hello! **(Say ?hi)**"
             },
             {
               "name": "Laugh",
-              "value": "Makes socky send a laughing gif **(Say sock laugh)**"
+              "value": "Makes the bot send a laughing gif **(Say ?laugh)**"
             },
             {
               "name": "You're gay",
-              "value": "Have sockyy tell you about how he feels when you say that **(say sock you're gay)**"
+              "value": "Have the bot tell you about how he feels when you say that **(say ?you're gay)**"
             },
             {
               "name": "Homosexual",
-              "value": "Have Socky send you some quality gay **(say sock gay)**"
+              "value": "Have the bot send you some quality gay **(say ?gay)**"
             },
             {
               "name": "Frick you",
-              "value": "Have sockyy tell you off for cursing **(say sock fuck you)**"
+              "value": "Have the bot tell you off for cursing **(say ?fuck you)**"
             },
             {
               "name": "Goodnight!",
-              "value": "Have socky wish you sweet dreams **(sock goodnight)**"
+              "value": "Have the bot wish you sweet dreams **(Say ?goodnight)**"
             },
             {
               "name": "Ask for a hug!",
-              "value": "Have sockyy give you a hug **(Say sock can i have a hug?)**"
+              "value": "Have the bot give you a hug **(Say ?can i have a hug?)**"
             },
             {
               "name": "Who's amazing?",
-              "value": "Have sockyy tell you who are the 2 most amazing people **(sock who are the most amazing people in the world?)**"
+              "value": "Have the bot tell you who are the 2 most amazing people **(?who are the most amazing people in the world?)**"
             }
           ]
         }
@@ -312,27 +312,27 @@ client.on("message", async message => {
     } else if (category == "fun") {
       message.channel.send({
         "embed": {
-          "title": "**Sockyy Commands **",
+          "title": "**Lgbtstripes Commands **",
           "color": 10038562,
           "thumbnail": {
-            "url": "https://ibb.co/VJpzYHH"
+            "url": "https://i.ibb.co/Qd897Py/b4844ea372818413347012c27e194798.jpg"
           },
           "fields": [
             {
               "name": "Kittens!",
-              "value": "Have sockyy send you beautiful gifs of kittens! **(Say sock kitty)**"
+              "value": "Have the bot send you beautiful gifs of kittens! **(Say ?kitty)**"
             },
             {
               "name": "Puppies!",
-              "value": "Have sockyy send you beautiful gifs of Puppies! **(Say sock puppy)**"
+              "value": "Have the bot send you beautiful gifs of Puppies! **(Say ?puppy)**"
             },
             {
               "name": "Snek!",
-              "value": "Have sockyy send you beautiful gifs of Snakes! **(Say sock snek)**"
+              "value": "Have the bot send you beautiful gifs of Snakes! **(Say ?snek)**"
             },
             {
               "name": "Murder",
-              "value": "Have Sockyy commit a murder for you! **(Say sock kill)**"
+              "value": "Have the bot commit a murder for you! **(Say ?kill)**"
             }
           ]
         }
@@ -340,27 +340,27 @@ client.on("message", async message => {
     } else if (category == "admin") {
       message.channel.send({
         "embed": {
-          "title": "**Sockyy Commands **",
+          "title": "**Lgbtstripes Commands **",
           "color": 10038562,
           "thumbnail": {
-            "url": "https://ibb.co/VJpzYHH"
+            "url": "https://i.ibb.co/Qd897Py/b4844ea372818413347012c27e194798.jpg"
           },
           "fields": [
             {
               "name": "Admin Logs!",
-              "value": "Run this command to have Sockyy log misdemeanors inside a certain channel! **(Say ?log)**"
+              "value": "Run this command to have the bot log misdemeanors inside a certain channel! **(Say ?log)**"
             },
             {
               "name": "Set Staff Ping!",
-              "value": "Run this command (and ping the staff ping) to have Sockyy ping staff when needed! **(Say ?sr [STAFF PING])**"
+              "value": "Run this command (and ping the staff ping) to have the bot ping staff when needed! **(Say ?sr [STAFF PING])**"
             },
             {
               "name": "Give Warnings!",
-              "value": "Have Sockyy warn a user and store it in their warnings! (Say ?warn [USERNAME/PING USER])"
+              "value": "Have the bot warn a user and store it in their warnings! (Say ?warn [USERNAME/PING USER])"
             },
             {
               "name": "List Warnings!",
-              "value": "Have Sockyy list the warnings of a specific user! **(say ?warnings [USERNAME/PING USER])**"
+              "value": "Have the bot list the warnings of a specific user! **(say ?warnings [USERNAME/PING USER])**"
             },
             {
               "name": "Remove Warnings!",
@@ -372,7 +372,7 @@ client.on("message", async message => {
             },
             {
               "name": "Clear Messages!",
-              "value": "Have Sockyy delete some messages in the chat! **(say ?clear [1-99])**"
+              "value": "Have the bot delete some messages in the chat! **(say ?clear [1-99])**"
             }
           ]
         }
