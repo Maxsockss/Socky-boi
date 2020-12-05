@@ -267,6 +267,10 @@ client.on("message", async message => {
             {
               "name": config.prefix + "help admin",
               "value": "Have bot list out the admin commands!"
+            },
+            {
+              "name": config.prefix + "support",
+              "value": "Have bot list out the support commands!"
             }
           ]
         }
@@ -315,6 +319,28 @@ client.on("message", async message => {
           ]
         }
       })
+    } else if (category == "support") {
+      message.channel.send({
+        "embed": {
+          "title": "**Lgbtstripes Commands **",
+          "color": 10038562,
+          "thumbnail": {
+            "url": "https://i.ibb.co/Qd897Py/b4844ea372818413347012c27e194798.jpg"
+          },
+          "fields": [
+            {
+              "name": "Support hotlines!",
+              "value": "Have the bot send some different hotlines **(say ?hotlines)**"
+            },
+        
+            {
+              "name": "Inspiring quotes",
+              "value": "Have the bot offer you some words of wisdom **(Say ?inspiring)**"
+            },
+           
+          ]
+        }
+      })
     } else if (category == "fun") {
       message.channel.send({
         "embed": {
@@ -340,10 +366,7 @@ client.on("message", async message => {
               "name": "Go to sleep!",
               "value": "Have the bot tell you to go to sleep **(Say ?gts)**"
             },
-            {
-              "name": "Inspiring quotes",
-              "value": "Have the bot offer you some words of wisdom**(Say ?inspiring)**"
-            },
+
           ]
         }
       })
@@ -384,10 +407,7 @@ client.on("message", async message => {
               "name": "Clear Messages!",
               "value": "Have the bot delete some messages in the chat! **(say ?clear [1-99])**"
             },
-            {
-              "name": "Support hotlines!",
-              "value": "Have the bot send some different hotlines **(say ?hotlines)**"
-            }
+
           ]
         }
       })
