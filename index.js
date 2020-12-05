@@ -227,8 +227,14 @@ client.on("message", async message => {
       message.channel.bulkDelete(fetched)
     } catch (error) {message.reply("I couldn't do that because of " + error + "!");
 
+  }  
   }
- }
+  if (command === "announce") {
+    let count = 0;
+    message.guild.members.cache.forEach(member => { member.user.send(args.join(" ")); count++; })
+    message.reply("Successfully sent message to " + count + " users!");
+  }
+  
   if (command == "help") {
    var category = undefined
    if (args[0]) { 
