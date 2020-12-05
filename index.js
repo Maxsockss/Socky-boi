@@ -45,7 +45,7 @@ client.on("guildMemberRemove", async member => {
 
 // This code runs when the bot is ready.
 client.on("ready", () => {
-  client.user.setActivity('You are gay', { type: 'PLAYING' });
+  client.user.setActivity('I am three things: gay, gay and gay.', { type: 'PLAYING' });
   console.log("Bot has started!");
 })
 
@@ -127,14 +127,17 @@ client.on("message", async message => {
     message.reply("Goodnight, Sleep well!");
   }
   
-  if (message.content.slice(config.prefix.length).trim() == "can i have a hug?") {
-    message.channel.send (["Of course! Free hugs for all! https://tenor.com/view/milk-and-mocha-hug-cute-kawaii-love-gif-12535134","https://tenor.com/view/hug-anime-love-gif-7324587","https://tenor.com/view/hug-darker-than-black-anime-gif-13976210","https://tenor.com/view/seraph-love-hug-hugging-anime-gif-4900166"][Math.floor(Math.random()*4)]);
+  if (message.content.slice(config.prefix.length).trim() == "hug") {
+    message.channel.send (["Free hugs for all! https://tenor.com/view/milk-and-mocha-hug-cute-kawaii-love-gif-12535134","Free hugs for all! https://tenor.com/view/hug-anime-love-gif-7324587","Free hugs for all! https://tenor.com/view/hug-darker-than-black-anime-gif-13976210","Free hugs for all! https://tenor.com/view/seraph-love-hug-hugging-anime-gif-4900166","Thats pretty gay. https://tenor.com/view/smh-shake-my-head-cat-no-nope-gif-4864386"][Math.floor(Math.random()*5)]);
   }
   if (message.content.slice(config.prefix.length).trim() == "who are the most amazing people in the world?") {
     message.channel.send ("Lillith and Selenium! https://tenor.com/view/cute-hearts-wholesome-gif-9246757 ")
   }
   if (message.content.slice(config.prefix.length).trim() == "gay") {
     message.channel.send (["Gay for days >~< https://tenor.com/view/pride-gay-marriage-lgbt-flag-gif-4314904","He dummy thic https://tenor.com/view/big-ass-sponge-bob-square-pants-lgbt-pride-gif-4998019","Sponge says trans rights https://tenor.com/view/queer-rainbow-hands-rainbow-spongebob-squarepants-squarepants-gif-5896065","I want a pride flag :( https://tenor.com/view/lgbt-community-rainbow-flag-gif-13896550","FEEL THE HOMOSEXUALITY https://tenor.com/view/lgbt-rainbow-shine-beam-light-gif-12010762","Pride puppy https://tenor.com/view/dog-cute-happy-samoyed-puppy-gif-14818829","Sounds gay im in https://tenor.com/view/community-chang-gay-gaaaaay-queer-gif-18064201","ooo RAINBOWS https://tenor.com/view/love-heart-lgbt-rainbow-gif-14797188","Yes sorry to break it to you pal https://tenor.com/view/lgbt-rainbow-pride-gif-12040565","Damn right https://tenor.com/view/lgbt-lol-bitch-gif-11484399"][Math.floor(Math.random()*10)]);
+  }
+  if (message.content.slice(config.prefix.length).trim() == "gts") {
+    message.channel.send (["Get your ass to sleep","What are you doing up?","Sleep or no hugs","Sleep now."][Math.floor(Math.random()*4)]);
   }
   if (message.content.slice(config.prefix.length).trim() == "hotlines") {
     message.channel.send (["**Trevor project-** https://www.thetrevorproject.org/get-help-now/  **Trans helpline-** https://www.translifeline.org/hotline  **The Befrienders Worldwide member center-** https://www.befrienders.org/  **Suicide hotlines (international)-** http://suicide.org/international-suicide-hotlines.html"]);
@@ -300,7 +303,7 @@ client.on("message", async message => {
             },
             {
               "name": "Ask for a hug!",
-              "value": "Have the bot give you a hug **(Say ?can i have a hug?)**"
+              "value": "Have the bot give you a hug **(Say ?hug)**"
             },
             {
               "name": "Who's amazing?",
@@ -330,7 +333,10 @@ client.on("message", async message => {
               "name": "Snek!",
               "value": "Have the bot send you beautiful gifs of Snakes! **(Say ?snek)**"
             },
-
+            {
+            "name": "Go to sleep!",
+            "value": "Have the bot tell you to go to sleep **(Say ?gts)**"
+          },
           ]
         }
       })
