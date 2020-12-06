@@ -123,7 +123,7 @@ client.on("message", async message => {
   if (message.content.slice(config.prefix.length).trim() == "fuck you") {
     message.author.send("Please don't curse :pleading_face: :point_right: :point_left:")
   }
-  if (message.content.slice(config.prefix.length).trim() == "hug") {
+  if (message.content.slice(config.prefix.length).trim() == "gn") {
     message.channel.send(["Goodnight, Sleep well! https://tenor.com/search/sleep-gifs","Goodnight! https://tenor.com/view/patrick-sleeping-bed-spongebob-gif-7518157","Sweet dreams! https://tenor.com/view/tonton-friends-sleep-gif-14535339 "," Im tired too https://tenor.com/view/peachcat-pillow-bedtime-goodnight-sleep-with-you-gif-14541089 "][Math.floor(Math.random()*5)]);
   }
   
@@ -312,7 +312,7 @@ client.on("message", async message => {
             },
             {
               "name": "Goodnight!",
-              "value": "Have the bot wish you sweet dreams **(Say ?goodnight)**"
+              "value": "Have the bot wish you sweet dreams **(Say ?gn)**"
             },
             {
               "name": "Ask for a hug!",
