@@ -2,10 +2,10 @@
   "name": "solonemisgay",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "env-cmd -f dev.env nodemon index.js -e js"
+    "start": "node app.js",
+    "dev": "env-cmd -f dev.env nodemon app.js -e js"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +17,7 @@
     "express": "^4.17.1",
     "fs": "0.0.1-security",
     "mongoose": "^5.10.2",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "path": "^0.12.7"
   }
 }

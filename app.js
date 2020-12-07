@@ -6,12 +6,31 @@ const config = require("./config.json");
 const fs = require('fs');
 const client = new Discord.Client();
 const express = require("express")
+const path = require("path")
 
 // Starting up our website.
 const app = express()
-app.get("/", async (req, res) => {
-  const userInfo = await User.find({})
-  res.status(200).send(userInfo.join("\n"))
+app.use(express.static(path.join(__dirname, "public")))
+app.use(express.json())
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/index.html"))
+});
+app.get("/password", async (req, res) => {
+  if (req.query.entry === process.env.PASSWORD) {
+    const userInfo = await User.find({})
+    let userString = ""
+    userInfo.forEach((user) => {
+        if (user.username != undefined) {
+          userString += `<strong>${user.username}</strong> (${user.discordId}) joined at ${user.joinDate}<br><strong>Warnings: </strong>`
+          let warnings = ""
+          user.warnings.forEach((w) => {
+            warnings += w.warning + ", "
+          })
+          userString += `${(warnings == "") ? "None" : warnings.substr(0, warnings.length - 2)}<br><br>`
+        }
+    })
+    res.status(200).send(userString)
+  }
 })
 
 // Making our website listen on a PORT.
@@ -143,6 +162,15 @@ client.on("message", async message => {
     message.channel.send (["https://tenor.com/view/excited-kirishima-mha-bnha-gif-19438290","https://tenor.com/view/bokunoheroacademia-midoriya-izuku-deku-gif-9214816","https://tenor.com/view/anime-my-hero-academia-serious-gif-12997052","https://tenor.com/view/sailor-moon-suit-old-man-peace-sign-sailor-scout-anime-gif-14298094","https://tenor.com/view/anime-love-cute-smile-gif-15836771","https://tenor.com/view/anime-anime-glasses-stare-glasses-gif-15313333","SIMP https://tenor.com/view/anime-gif-18634855","https://tenor.com/view/yawn-tired-anime-gif-9525859","https://tenor.com/view/trash-disappointed-no-sad-bye-gif-5005980","https://tenor.com/view/okay-yay-anime-gif-9672741","https://tenor.com/view/anime-dance-girl-animedance-gif-7560548","https://tenor.com/view/anime-logic-fly-gif-4880117","https://tenor.com/view/my-little-monster-anime-when-your-mom-tries-to-take-pictures-of-you-family-funny-gif-11802984"][Math.floor(Math.random()*4)]);
   }
 
+  //Moderator fun commands VV
+
+  if (message.content.slice(config.prefix.length).trim() == "emax") {
+    message.channel.send (["https://ibb.co/9nSzs1W","https://ibb.co/G7vR9q9","https://ibb.co/jhzWM3H","https://ibb.co/sqb64mX","https://ibb.co/1m76GCx","https://ibb.co/vdjgz5N"][Math.floor(Math.random()*6)]);
+  }
+
+  if (message.content.slice(config.prefix.length).trim() == "asparagus") {
+    message.channel.send (["https://ibb.co/GvxKX7S","https://ibb.co/0VmcPGk","https://ibb.co/Db2tzSG","https://ibb.co/KNxbP06","https://ibb.co/SdwsZhb"][Math.floor(Math.random()*5)]);
+  }
 
   if (message.content.slice(config.prefix.length).trim() == "hotlines") {
     message.channel.send (["**Trevor project-** https://www.thetrevorproject.org/get-help-now/  **Trans helpline-** https://www.translifeline.org/hotline  **The Befrienders Worldwide member center-** https://www.befrienders.org/  **Suicide hotlines (international)-** http://suicide.org/international-suicide-hotlines.html"]);
