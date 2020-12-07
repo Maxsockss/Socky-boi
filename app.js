@@ -162,6 +162,8 @@ client.on("message", async message => {
     message.channel.send (["https://tenor.com/view/excited-kirishima-mha-bnha-gif-19438290","https://tenor.com/view/bokunoheroacademia-midoriya-izuku-deku-gif-9214816","https://tenor.com/view/anime-my-hero-academia-serious-gif-12997052","https://tenor.com/view/sailor-moon-suit-old-man-peace-sign-sailor-scout-anime-gif-14298094","https://tenor.com/view/anime-love-cute-smile-gif-15836771","https://tenor.com/view/anime-anime-glasses-stare-glasses-gif-15313333","SIMP https://tenor.com/view/anime-gif-18634855","https://tenor.com/view/yawn-tired-anime-gif-9525859","https://tenor.com/view/trash-disappointed-no-sad-bye-gif-5005980","https://tenor.com/view/okay-yay-anime-gif-9672741","https://tenor.com/view/anime-dance-girl-animedance-gif-7560548","https://tenor.com/view/anime-logic-fly-gif-4880117","https://tenor.com/view/my-little-monster-anime-when-your-mom-tries-to-take-pictures-of-you-family-funny-gif-11802984"][Math.floor(Math.random()*4)]);
   }
 
+
+
   //Moderator fun commands VV
 
   if (message.content.slice(config.prefix.length).trim() == "emax") {
@@ -171,7 +173,18 @@ client.on("message", async message => {
   if (message.content.slice(config.prefix.length).trim() == "asparagus") {
     message.channel.send (["https://ibb.co/GvxKX7S","https://ibb.co/0VmcPGk","https://ibb.co/Db2tzSG","https://ibb.co/KNxbP06","https://ibb.co/SdwsZhb"][Math.floor(Math.random()*5)]);
   }
+  
+  if (message.content.slice(config.prefix.length).trim() == "elil") {
+    message.channel.send (["https://ibb.co/68mLvvg","https://ibb.co/kSM0z5N","https://ibb.co/M2f9nj6","https://ibb.co/MM9tcmS","https://ibb.co/D9V86XQ","https://ibb.co/McpK4Gk","https://ibb.co/5hxZS7q","https://ibb.co/fMjWqqp","https://ibb.co/0YGCLX2","https://ibb.co/Dt0VtBZ"][Math.floor(Math.random()*10)]);
+  }
+    
+  if (message.content.slice(config.prefix.length).trim() == "ecin") {
+    message.channel.send (["https://ibb.co/4sY5TfB","https://ibb.co/8XGXx1Q","https://ibb.co/DCppKC6","https://ibb.co/v32WkmF","https://ibb.co/NY22mWV","https://ibb.co/cvWN3FJ","https://ibb.co/qmGZ0p3","https://ibb.co/7gWV0N3","https://ibb.co/9r6mR8z","https://ibb.co/Q7wVKHJ","https://ibb.co/xqjysMp","https://ibb.co/kD4Y8xx","https://ibb.co/4P3nkt5" ][Math.floor(Math.random()*13)]);
+  }
 
+
+
+//support commands
   if (message.content.slice(config.prefix.length).trim() == "hotlines") {
     message.channel.send (["**Trevor project-** https://www.thetrevorproject.org/get-help-now/  **Trans helpline-** https://www.translifeline.org/hotline  **The Befrienders Worldwide member center-** https://www.befrienders.org/  **Suicide hotlines (international)-** http://suicide.org/international-suicide-hotlines.html"]);
   }
