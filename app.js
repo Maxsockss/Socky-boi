@@ -179,14 +179,15 @@ client.on("message", async message => {
   }
     
   if (message.content.slice(config.prefix.length).trim() == "ecin") {
-    message.channel.send (["https://ibb.co/4sY5TfB","https://ibb.co/8XGXx1Q","https://ibb.co/DCppKC6","https://ibb.co/v32WkmF","https://ibb.co/NY22mWV","https://ibb.co/cvWN3FJ","https://ibb.co/qmGZ0p3","https://ibb.co/7gWV0N3","https://ibb.co/9r6mR8z","https://ibb.co/Q7wVKHJ","https://ibb.co/xqjysMp","https://ibb.co/kD4Y8xx","https://ibb.co/4P3nkt5" ][Math.floor(Math.random()*13)]);
+    message.channel.send (["https://ibb.co/4sY5TfB","https://ibb.co/8XGXx1Q","https://ibb.co/DCppKC6","https://ibb.co/v32WkmF","https://ibb.co/NY22mWV","https://ibb.co/cvWN3FJ","https://ibb.co/qmGZ0p3","https://ibb.co/7gWV0N3","https://ibb.co/9r6mR8z","https://ibb.co/Q7wVKHJ","https://ibb.co/xqjysMp","https://ibb.co/kD4Y8xx","https://ibb.co/4P3nkt5" ][Math.floor(Math.random()*13
+    )]);
   }
 
 
 
 //support commands
   if (message.content.slice(config.prefix.length).trim() == "hotlines") {
-    message.channel.send (["**Trevor project-** https://www.thetrevorproject.org/get-help-now/  **Trans helpline-** https://www.translifeline.org/hotline  **The Befrienders Worldwide member center-** https://www.befrienders.org/  **Suicide hotlines (international)-** http://suicide.org/international-suicide-hotlines.html"]);
+    message.channel.send (["**Trevor project-** https://www.thetrevorproject.org/get-help-now/  **Trans helpline-** https://www.translifeline.org/hotline  **The Befrienders Worldwide member center-** https://www.befrienders.org/  **Suicide hotlines (international)-** http://suicide.org/international-suicide-hotlines.html DID based hotline- https://www.firstpersonplural.org.uk/"]);
   }
   if (message.content.slice(config.prefix.length).trim() == "inspiring") {
     message.channel.send (["Keep your head up, you got this! https://tenor.com/view/smooth-sea-quote-quotes-inspirational-inspiration-gif-17364919","https://tenor.com/view/quote-love-sayings-inspirational-lovequotes-gif-13213754","https://tenor.com/view/deep-dark-darkquotes-deepquotes-gif-14621617","https://tenor.com/view/inspirational-quote-inspirational-dont-lose-hope-hope-stars-come-out-gif-17365896","https://tenor.com/view/aahandfield-drewisme-strong-inspirational-inspirational-quotes-gif-17496352","https://tenor.com/view/you-can-do-anything-inspirational-cracker-gif-11101966"][Math.floor(Math.random()*6)]);
