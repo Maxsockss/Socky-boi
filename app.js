@@ -186,9 +186,18 @@ client.on("message", async message => {
 
 
 //support commands
-  if (message.content.slice(config.prefix.length).trim() == "hotlines") {
-    message.channel.send (["**Trevor project-** https://www.thetrevorproject.org/get-help-now/  **Trans helpline-** https://www.translifeline.org/hotline  **The Befrienders Worldwide member center-** https://www.befrienders.org/  **Suicide hotlines (international)-** http://suicide.org/international-suicide-hotlines.html DID based hotline- https://www.firstpersonplural.org.uk/"]);
-  }
+//hotlines
+if (message.content.slice(config.prefix.length).trim() == "ihotlines") {
+  message.channel.send({"embed": {  
+    "description": "[**Befrienders,  **](https://www.befrienders.org/) [**International Suicide Hotlines,,  **](http://suicide.org/international-suicide-hotlines.html) [**DID based hotlines (UK),,  **](https://www.firstpersonplural.org.uk/)[**Suicide Hotlines (UK),,  **](https://www.therapyroute.com/article/suicide-hotlines-and-crisis-lines-in-the-united-kingdom) [**Trans helpline (US AND CAN) **](https://www.translifeline.org/hotline)" 
+  }})
+}
+if (message.content.slice(config.prefix.length).trim() == "ahotlines") {
+  message.channel.send({"embed": {  
+    "description": "[**Trevor project**](https://www.thetrevorproject.org/get-help-now/)" 
+  }})
+}
+
   if (message.content.slice(config.prefix.length).trim() == "inspiring") {
     message.channel.send (["Keep your head up, you got this! https://tenor.com/view/smooth-sea-quote-quotes-inspirational-inspiration-gif-17364919","https://tenor.com/view/quote-love-sayings-inspirational-lovequotes-gif-13213754","https://tenor.com/view/deep-dark-darkquotes-deepquotes-gif-14621617","https://tenor.com/view/inspirational-quote-inspirational-dont-lose-hope-hope-stars-come-out-gif-17365896","https://tenor.com/view/aahandfield-drewisme-strong-inspirational-inspirational-quotes-gif-17496352","https://tenor.com/view/you-can-do-anything-inspirational-cracker-gif-11101966"][Math.floor(Math.random()*6)]);
   }
@@ -377,9 +386,13 @@ client.on("message", async message => {
           },
           "fields": [
             {
-              "name": "Support hotlines!",
-              "value": "Have the bot send some different hotlines **(say ?hotlines)**"
+              "name": "International hotlines!",
+              "value": "Have the bot send some different International hotlines **(say ?ihotlines)**"
             },
+            {
+            "name": "US hotlines!",
+            "value": "Have the bot send some different US hotlines **(say ?ahotlines)**"
+          },
         
             {
               "name": "Inspiring quotes",
