@@ -64,7 +64,7 @@ client.on("guildMemberRemove", async member => {
 
 // This code runs when the bot is ready.
 client.on("ready", () => {
-  client.user.setActivity('I am three things: gay, gay and gay.', { type: 'PLAYING' });
+  client.user.setActivity('Gay? Gay', { type: 'PLAYING' });
   console.log("Bot has started!");
 })
 
@@ -164,16 +164,12 @@ client.on("message", async message => {
 
 
 
-  //Moderator fun commands VV
+  //Moderator exposing
 
   if (message.content.slice(config.prefix.length).trim() == "emax") {
     message.channel.send (["https://ibb.co/9nSzs1W","https://ibb.co/G7vR9q9","https://ibb.co/jhzWM3H","https://ibb.co/sqb64mX","https://ibb.co/1m76GCx","https://ibb.co/vdjgz5N"][Math.floor(Math.random()*6)]);
   }
 
-  if (message.content.slice(config.prefix.length).trim() == "asparagus") {
-    message.channel.send (["https://ibb.co/GvxKX7S","https://ibb.co/0VmcPGk","https://ibb.co/Db2tzSG","https://ibb.co/KNxbP06","https://ibb.co/SdwsZhb"][Math.floor(Math.random()*5)]);
-  }
-  
   if (message.content.slice(config.prefix.length).trim() == "elil") {
     message.channel.send (["https://ibb.co/68mLvvg","https://ibb.co/kSM0z5N","https://ibb.co/M2f9nj6","https://ibb.co/MM9tcmS","https://ibb.co/D9V86XQ","https://ibb.co/McpK4Gk","https://ibb.co/5hxZS7q","https://ibb.co/fMjWqqp","https://ibb.co/0YGCLX2","https://ibb.co/Dt0VtBZ"][Math.floor(Math.random()*10)]);
   }
@@ -183,6 +179,28 @@ client.on("message", async message => {
     )]);
   }
 
+  if (message.content.slice(config.prefix.length).trim() == "ejasper") {
+    message.channel.send (["https://ibb.co/sbtyjGC","https://ibb.co/rfxFvGR","https://ibb.co/MRdy3TL","https://ibb.co/h8RdZQv","https://ibb.co/Ss2223j","https://ibb.co/g392Djv"][Math.floor(Math.random()*6
+    )]);
+  }
+  if (message.content.slice(config.prefix.length).trim() == "echan") {
+    message.channel.send (["https://ibb.co/MG7CR2D","https://ibb.co/Z6WgFbb","https://ibb.co/M89zmNB","https://ibb.co/CvVv6SQ"][Math.floor(Math.random()*4
+    )]);
+  } 
+  if (message.content.slice(config.prefix.length).trim() == "eketchup") {
+    message.channel.send (["https://ibb.co/B6X5DbD","https://ibb.co/PcFPr8F","https://ibb.co/9yDb1Fq","https://ibb.co/8XVBwqZ"][Math.floor(Math.random()*4
+    )]);
+  } 
+  if (message.content.slice(config.prefix.length).trim() == "eramen") {
+    message.channel.send (["https://ibb.co/G5MLSQd","https://ibb.co/vQgdJt1","https://ibb.co/HHdkptX","https://ibb.co/7j9nKy0","https://ibb.co/y49WGnH"][Math.floor(Math.random()*5
+    )]);
+  } 
+
+//Mod fun commands
+  if (message.content.slice(config.prefix.length).trim() == "asparagus") {
+    message.channel.send (["https://ibb.co/GvxKX7S","https://ibb.co/0VmcPGk","https://ibb.co/Db2tzSG","https://ibb.co/KNxbP06","https://ibb.co/SdwsZhb"][Math.floor(Math.random()*5)]);
+  }
+  
 
 
 //support commands
