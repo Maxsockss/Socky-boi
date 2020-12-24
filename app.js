@@ -85,6 +85,7 @@ async function hasAdministrator(member, guild) {
 }
 
 // This code runs everytime a user sends a message.
+var keepSpamming = false; 
 client.on("message", async message => {
   
   // If the user is a bot, we don't run any of our precious code.
@@ -120,6 +121,16 @@ client.on("message", async message => {
   var command = args.shift().toLowerCase();       
   
   // A bunch of commands that look for responses.
+  function spam() {
+    message.channel.send("FRICK")
+    if (keepSpamming) {
+      setTimeout(spam, 100)
+    }
+  }
+  if (command == "spam") {
+    keepSpamming = !keepSpamming;
+    spam()
+  }
   if (command == "hi") {
     message.reply("Hello!");
   }
@@ -149,9 +160,7 @@ client.on("message", async message => {
   if (message.content.slice(config.prefix.length).trim() == "hug") {
     message.channel.send (["Free hugs for all! https://tenor.com/view/milk-and-mocha-hug-cute-kawaii-love-gif-12535134","Free hugs for all! https://tenor.com/view/hug-anime-love-gif-7324587","Free hugs for all! https://tenor.com/view/hug-darker-than-black-anime-gif-13976210","Free hugs for all! https://tenor.com/view/seraph-love-hug-hugging-anime-gif-4900166","Thats pretty gay. https://tenor.com/view/smh-shake-my-head-cat-no-nope-gif-4864386"][Math.floor(Math.random()*5)]);
   }
-  if (message.content.slice(config.prefix.length).trim() == "who are the most amazing people in the world?") {
-    message.channel.send ("Lillith and Selenium! https://tenor.com/view/cute-hearts-wholesome-gif-9246757 ")
-  }
+
   if (message.content.slice(config.prefix.length).trim() == "gay") {
     message.channel.send (["Gay for days >~< https://tenor.com/view/pride-gay-marriage-lgbt-flag-gif-4314904","https://tenor.com/view/really-what-gif-19132749","He dummy thic https://tenor.com/view/big-ass-sponge-bob-square-pants-lgbt-pride-gif-4998019","Sponge says trans rights https://tenor.com/view/queer-rainbow-hands-rainbow-spongebob-squarepants-squarepants-gif-5896065","I want a pride flag :( https://tenor.com/view/lgbt-community-rainbow-flag-gif-13896550","FEEL THE HOMOSEXUALITY https://tenor.com/view/lgbt-rainbow-shine-beam-light-gif-12010762","Pride puppy https://tenor.com/view/dog-cute-happy-samoyed-puppy-gif-14818829","Sounds gay im in https://tenor.com/view/community-chang-gay-gaaaaay-queer-gif-18064201","ooo RAINBOWS https://tenor.com/view/love-heart-lgbt-rainbow-gif-14797188","Yes sorry to break it to you pal https://tenor.com/view/lgbt-rainbow-pride-gif-12040565","Damn right https://tenor.com/view/lgbt-lol-bitch-gif-11484399"][Math.floor(Math.random()*11)]);
   }
