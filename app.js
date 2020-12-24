@@ -64,7 +64,7 @@ client.on("guildMemberRemove", async member => {
 
 // This code runs when the bot is ready.
 client.on("ready", () => {
-  client.user.setActivity('Gay? Gay', { type: 'PLAYING' });
+  client.user.setActivity('MERRY GAYMAS', { type: 'PLAYING' });
   console.log("Bot has started!");
 })
 
@@ -85,7 +85,6 @@ async function hasAdministrator(member, guild) {
 }
 
 // This code runs everytime a user sends a message.
-var keepSpamming = false; 
 client.on("message", async message => {
   
   // If the user is a bot, we don't run any of our precious code.
@@ -121,16 +120,7 @@ client.on("message", async message => {
   var command = args.shift().toLowerCase();       
   
   // A bunch of commands that look for responses.
-  function spam() {
-    message.channel.send("FRICK")
-    if (keepSpamming) {
-      setTimeout(spam, 100)
-    }
-  }
-  if (command == "spam") {
-    keepSpamming = !keepSpamming;
-    spam()
-  }
+
   if (command == "hi") {
     message.reply("Hello!");
   }
