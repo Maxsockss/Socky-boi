@@ -160,6 +160,11 @@ client.on("message", async message => {
   if (message.content.slice(config.prefix.length).trim() == "weeb") {
     message.channel.send (["https://tenor.com/view/excited-kirishima-mha-bnha-gif-19438290","https://tenor.com/view/bokunoheroacademia-midoriya-izuku-deku-gif-9214816","https://tenor.com/view/anime-my-hero-academia-serious-gif-12997052","https://tenor.com/view/sailor-moon-suit-old-man-peace-sign-sailor-scout-anime-gif-14298094","https://tenor.com/view/anime-love-cute-smile-gif-15836771","https://tenor.com/view/anime-anime-glasses-stare-glasses-gif-15313333","SIMP https://tenor.com/view/anime-gif-18634855","https://tenor.com/view/yawn-tired-anime-gif-9525859","https://tenor.com/view/trash-disappointed-no-sad-bye-gif-5005980","https://tenor.com/view/okay-yay-anime-gif-9672741","https://tenor.com/view/anime-dance-girl-animedance-gif-7560548","https://tenor.com/view/anime-logic-fly-gif-4880117","https://tenor.com/view/my-little-monster-anime-when-your-mom-tries-to-take-pictures-of-you-family-funny-gif-11802984"][Math.floor(Math.random()*4)]);
   }
+  ///Lost the game///
+  if (command == "g") {
+    message.delete();
+    message.channel.send("You have all lost the game MWAHAHAHAHAHAHAH!");
+  }
 
 
 
@@ -218,7 +223,16 @@ if (message.content.slice(config.prefix.length).trim() == "ahotlines") {
   if (message.content.slice(config.prefix.length).trim() == "inspiring") {
     message.channel.send (["Keep your head up, you got this! https://tenor.com/view/smooth-sea-quote-quotes-inspirational-inspiration-gif-17364919","https://tenor.com/view/quote-love-sayings-inspirational-lovequotes-gif-13213754","https://tenor.com/view/deep-dark-darkquotes-deepquotes-gif-14621617","https://tenor.com/view/inspirational-quote-inspirational-dont-lose-hope-hope-stars-come-out-gif-17365896","https://tenor.com/view/aahandfield-drewisme-strong-inspirational-inspirational-quotes-gif-17496352","https://tenor.com/view/you-can-do-anything-inspirational-cracker-gif-11101966"][Math.floor(Math.random()*6)]);
   }
-
+    ///check in
+    if (command == "checkup") {
+      message.delete();
+      message.channel.send ("How is everyone doing today? Just a reminder if you ever need to rant or talk to anyone our support channels are always open, just head on into one and say the command ?support to chat with someone who can help!");
+    }
+    if (command == "support") { 
+      message.channel.send ("<@&791517216364560424> I'd like some help please. Thank you so much in advance!");
+    }
+  
+///warnings
   if (command == "warnings") {
     let isAdmin = await hasAdministrator(message.member, message.guild)
     if (!isAdmin) return message.reply("Only admins can use that command!")
@@ -411,10 +425,14 @@ if (message.content.slice(config.prefix.length).trim() == "ahotlines") {
             "value": "Have the bot send some different US hotlines **(say ?ahotlines)**"
           },
         
-            {
-              "name": "Inspiring quotes",
-              "value": "Have the bot offer you some words of wisdom **(Say ?inspiring)**"
-            },
+          {
+            "name": "Inspiring quotes",
+            "value": "Have the bot offer you some words of wisdom **(Say ?inspiring)**"
+          },
+          {
+            "name": "Support Dispatch",
+            "value": "Have the bot ping support dispatch **(Say ?support)**"
+          },
            
           ]
         }
