@@ -137,6 +137,12 @@ client.on("message", async message => {
   if (command == "snek") {
     message.reply(["https://tenor.com/view/snake-hiss-crawling-gif-14744345","https://tenor.com/view/surprise-cereal-snake-wasnt-expecting-that-gif-4846480","https://tenor.com/view/snake-gentleman-hatehat-cute-tongue-gif-12731748","https://tenor.com/view/yassssnake-yas-snake-yass-gif-12932110","https://tenor.com/view/snakes-animal-hiss-gif-17893457","https://tenor.com/view/hiss-tiny-aww-aw-awe-gif-3960725","https://tenor.com/view/tiny-snake-going-in-circle-ring-cute-animals-gif-16117912","https://tenor.com/view/cute-snake-jawn-good-morning-wake-up-gif-17002140","https://tenor.com/view/cute-boop-snake-gif-5440100","https://tenor.com/view/spider-meme-snake-funny-cute-gif-13398395","https://tenor.com/view/snake-adorable-gif-8228527","https://tenor.com/view/snakes-animal-hiss-gif-17893457","https://tenor.com/view/cat-snake-shook-shocked-scared-gif-12070275","https://tenor.com/view/snake-hand-gif-6199080","https://tenor.com/view/get-off-me-spongebob-spongebob-squarepants-ahh-scream-gif-18462295","https://tenor.com/view/cats-snakes-cat-snake-tail-gif-11138102","https://tenor.com/view/rotating-snake-confused-snake-snek-cute-snakes-pet-snakes-gif-13806464","https://tenor.com/view/top-hat-snakes-ritz-mustache-gif-3519672","https://tenor.com/view/snaking-climbing-sneaking-up-the-tree-snakes-gif-13777951","https://tenor.com/view/la-gata-serpientes-con-bracitos-serpiente-animal-snakes-with-arms-gif-16444494"][Math.floor(Math.random()*22)]);
   }
+  if (message.content.slice(config.prefix.length).trim() == "frog") {
+    message.channel.send (["https://tenor.com/view/hendery-way-v-frog-gif-14537187","https://tenor.com/view/frog-animated-tease-gif-11398429","https://tenor.com/view/chillin-gif-10127369","https://tenor.com/view/frog-fat-caress-animal-gif-17015097","https://tenor.com/view/rain-sticker-rainy-precipitation-frog-gif-12899597","https://tenor.com/view/frog-gif-19288492","https://tenor.com/view/put-hat-on-frog-viralhog-frog-wears-hat-frog-gif-19436312","https://tenor.com/view/frog-detective-walking-amphibian-gif-19679307","https://tenor.com/view/frog-dispenser-gif-19457954","https://tenor.com/view/frog-2020-water-this-is-fine-gif-19662045","https://tenor.com/view/froge-gif-18656581","https://tenor.com/view/dance-frog-gif-17776815"][Math.floor(Math.random()*12)]);
+  }
+  if (message.content.slice(config.prefix.length).trim() == "rat") {
+    message.channel.send (["https://tenor.com/view/rat-post-this-rat-rats-rat-dance-bouncing-rat-gif-16831053","https://tenor.com/view/rat-banner-gif-18467093","https://tenor.com/view/rat-stealing-pizza-jumping-gif-18609834","https://tenor.com/view/rat-bathing-rat-taking-abath-rat-in-sink-rodent-gif-18309165","https://tenor.com/view/rat-shower-god-cute-gif-18332281","https://tenor.com/view/trickortreat-candy-mouse-halloween-gif-4582381","https://tenor.com/view/rat-trumpet-glitch-musical-intrument-gif-17146530","https://tenor.com/view/happy-year-of-the-happy-rat-pet-rat-cute-adorable-belly-rub-gif-16192760","https://tenor.com/view/rat-petting-gif-10511968","https://tenor.com/view/rats-queen-rat-queen-princess-rat-gif-4882771","https://tenor.com/view/rat-eating-spaghetti-cute-gif-11451413","https://tenor.com/view/rat-gif-10942909"][Math.floor(Math.random()*12)]);
+  }
   if (message.content.slice(config.prefix.length).trim() == "you're gay") {
     message.channel.send("I Know")
   }
@@ -220,9 +226,9 @@ if (message.content.slice(config.prefix.length).trim() == "ahotlines") {
   }})
 }
 
-  if (message.content.slice(config.prefix.length).trim() == "inspiring") {
-    message.channel.send (["Keep your head up, you got this! https://tenor.com/view/smooth-sea-quote-quotes-inspirational-inspiration-gif-17364919","https://tenor.com/view/quote-love-sayings-inspirational-lovequotes-gif-13213754","https://tenor.com/view/deep-dark-darkquotes-deepquotes-gif-14621617","https://tenor.com/view/inspirational-quote-inspirational-dont-lose-hope-hope-stars-come-out-gif-17365896","https://tenor.com/view/aahandfield-drewisme-strong-inspirational-inspirational-quotes-gif-17496352","https://tenor.com/view/you-can-do-anything-inspirational-cracker-gif-11101966"][Math.floor(Math.random()*6)]);
-  }
+if (message.content.slice(config.prefix.length).trim() == "inspiring") {
+  message.channel.send (["Keep your head up, you got this! https://tenor.com/view/smooth-sea-quote-quotes-inspirational-inspiration-gif-17364919","https://tenor.com/view/quote-love-sayings-inspirational-lovequotes-gif-13213754","https://tenor.com/view/deep-dark-darkquotes-deepquotes-gif-14621617","https://tenor.com/view/inspirational-quote-inspirational-dont-lose-hope-hope-stars-come-out-gif-17365896","https://tenor.com/view/aahandfield-drewisme-strong-inspirational-inspirational-quotes-gif-17496352","https://tenor.com/view/you-can-do-anything-inspirational-cracker-gif-11101966"][Math.floor(Math.random()*6)]);
+}
     ///check in
     if (command == "checkup") {
       message.delete();
