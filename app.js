@@ -64,7 +64,7 @@ client.on("guildMemberRemove", async member => {
 
 // This code runs when the bot is ready.
 client.on("ready", () => {
-  client.user.setActivity('MERRY GAYMAS', { type: 'PLAYING' });
+  client.user.setActivity('Robot more like roBITCH', { type: 'PLAYING' });
   console.log("Bot has started!");
 })
 
@@ -144,10 +144,11 @@ client.on("message", async message => {
     message.channel.send (["https://tenor.com/view/rat-post-this-rat-rats-rat-dance-bouncing-rat-gif-16831053","https://tenor.com/view/rat-banner-gif-18467093","https://tenor.com/view/rat-stealing-pizza-jumping-gif-18609834","https://tenor.com/view/rat-bathing-rat-taking-abath-rat-in-sink-rodent-gif-18309165","https://tenor.com/view/rat-shower-god-cute-gif-18332281","https://tenor.com/view/trickortreat-candy-mouse-halloween-gif-4582381","https://tenor.com/view/rat-trumpet-glitch-musical-intrument-gif-17146530","https://tenor.com/view/happy-year-of-the-happy-rat-pet-rat-cute-adorable-belly-rub-gif-16192760","https://tenor.com/view/rat-petting-gif-10511968","https://tenor.com/view/rats-queen-rat-queen-princess-rat-gif-4882771","https://tenor.com/view/rat-eating-spaghetti-cute-gif-11451413","https://tenor.com/view/rat-gif-10942909"][Math.floor(Math.random()*12)]);
   }
   if (message.content.slice(config.prefix.length).trim() == "you're gay") {
-    message.channel.send("I Know")
+    message.channel.send("I Know","No you")
   }
   if (message.content.slice(config.prefix.length).trim() == "fuck you") {
-    message.author.send("Please don't curse :pleading_face: :point_right: :point_left:")
+    message.author.send (["Please dont curse :pleading_poke:","No no FUCK YOU","excuse me?"][Math.floor(Math.random()*3)]);
+    console.log(Math.random()*3)
   }
   if (message.content.slice(config.prefix.length).trim() == "gn") {
     message.channel.send(["Goodnight, Sleep well! https://tenor.com/search/sleep-gifs","Goodnight! https://tenor.com/view/patrick-sleeping-bed-spongebob-gif-7518157","Sweet dreams! https://tenor.com/view/tonton-friends-sleep-gif-14535339 "," Im tired too https://tenor.com/view/peachcat-pillow-bedtime-goodnight-sleep-with-you-gif-14541089 "][Math.floor(Math.random()*5)]);
@@ -201,10 +202,7 @@ client.on("message", async message => {
     message.channel.send (["https://ibb.co/B6X5DbD","https://ibb.co/PcFPr8F","https://ibb.co/9yDb1Fq","https://ibb.co/8XVBwqZ"][Math.floor(Math.random()*4
     )]);
   } 
-  if (message.content.slice(config.prefix.length).trim() == "eramen") {
-    message.channel.send (["https://ibb.co/G5MLSQd","https://ibb.co/vQgdJt1","https://ibb.co/HHdkptX","https://ibb.co/7j9nKy0","https://ibb.co/y49WGnH"][Math.floor(Math.random()*5
-    )]);
-  } 
+
 
 //Mod fun commands
   if (message.content.slice(config.prefix.length).trim() == "asparagus") {
@@ -217,23 +215,29 @@ client.on("message", async message => {
 //hotlines
 if (message.content.slice(config.prefix.length).trim() == "ihotlines") {
   message.channel.send({"embed": {  
-    "description": "[**Befrienders,  **](https://www.befrienders.org/) [**International Suicide Hotlines,,  **](http://suicide.org/international-suicide-hotlines.html) [**DID based hotlines (UK),,  **](https://www.firstpersonplural.org.uk/)[**Suicide Hotlines (UK),,  **](https://www.therapyroute.com/article/suicide-hotlines-and-crisis-lines-in-the-united-kingdom) [**Trans helpline (US AND CAN) **](https://www.translifeline.org/hotline)" 
+    "description": "[**Befrienders**](https://www.befrienders.org/) \n [**International Suicide Hotlines**](http://suicide.org/international-suicide-hotlines.html) \n [**DID based hotlines (UK)**](https://www.firstpersonplural.org.uk/) \n [**Suicide Hotlines (UK)**](https://www.therapyroute.com/article/suicide-hotlines-and-crisis-lines-in-the-united-kingdom) \n [**Trans helpline (US AND CAN) **](https://www.translifeline.org/hotline) \n In order to use the hotlines, just click on the one you'd like!" 
   }})
 }
 if (message.content.slice(config.prefix.length).trim() == "ahotlines") {
   message.channel.send({"embed": {  
-    "description": "[**Trevor project**](https://www.thetrevorproject.org/get-help-now/)" 
+    "description": "[**Trevor project**](https://www.thetrevorproject.org/get-help-now/) \n In order to use the hotlines, just click on the one you'd like!" 
+  }})
+}
+if (message.content.slice(config.prefix.length).trim() == "aushotlines") {
+  message.channel.send({"embed": {  
+    "description": "[**Lifeline Australia**](https://www.lifeline.org.au/) \n [**Beyond Blue**](https://www.beyondblue.org.au/) \n [**Kids helpline**](https://kidshelpline.com.au/) \n [**Headspace**](https://headspace.org.au/eheadspace/) \n In order to use the hotlines, just click on the one you'd like!" 
   }})
 }
 
 if (message.content.slice(config.prefix.length).trim() == "inspiring") {
-  message.channel.send (["Keep your head up, you got this! https://tenor.com/view/smooth-sea-quote-quotes-inspirational-inspiration-gif-17364919","https://tenor.com/view/quote-love-sayings-inspirational-lovequotes-gif-13213754","https://tenor.com/view/deep-dark-darkquotes-deepquotes-gif-14621617","https://tenor.com/view/inspirational-quote-inspirational-dont-lose-hope-hope-stars-come-out-gif-17365896","https://tenor.com/view/aahandfield-drewisme-strong-inspirational-inspirational-quotes-gif-17496352","https://tenor.com/view/you-can-do-anything-inspirational-cracker-gif-11101966"][Math.floor(Math.random()*6)]);
+  message.author.send (["Keep your head up, you got this! https://tenor.com/view/smooth-sea-quote-quotes-inspirational-inspiration-gif-17364919","https://tenor.com/view/quote-love-sayings-inspirational-lovequotes-gif-13213754","https://tenor.com/view/deep-dark-darkquotes-deepquotes-gif-14621617","https://tenor.com/view/inspirational-quote-inspirational-dont-lose-hope-hope-stars-come-out-gif-17365896","https://tenor.com/view/aahandfield-drewisme-strong-inspirational-inspirational-quotes-gif-17496352","https://tenor.com/view/you-can-do-anything-inspirational-cracker-gif-11101966"][Math.floor(Math.random()*6)]);
 }
     ///check in
     if (command == "checkup") {
+      message.channel.send (["How is everyone doing today? Just a reminder if you ever need to rant or talk to anyone our support channels are always open, just head on into one and say the command ?support to chat with someone who can help!","I hope everyone is having a wonderful day! Make sure you are staying hydrated, I'm proud of you. \n if you ever need anyone to talk to, support is always here to chat. "][Math.floor(Math.random()*2)]);
       message.delete();
-      message.channel.send ("How is everyone doing today? Just a reminder if you ever need to rant or talk to anyone our support channels are always open, just head on into one and say the command ?support to chat with someone who can help!");
-    }
+      console.log
+      } 
     if (command == "support") { 
       message.channel.send ("<@&791517216364560424> I'd like some help please. Thank you so much in advance!");
     }
