@@ -147,7 +147,7 @@ client.on("message", async message => {
     message.channel.send("I Know","No you")
   }
   if (message.content.slice(config.prefix.length).trim() == "fuck you") {
-    message.author.send (["Please dont curse :pleading_poke:","No no FUCK YOU","excuse me?"][Math.floor(Math.random()*3)]);
+    message.author.send (["Please dont curse :pleading_face: :point_right: :point_left","No no FUCK YOU","excuse me?"][Math.floor(Math.random()*3)]);
     console.log(Math.random()*3)
   }
   if (message.content.slice(config.prefix.length).trim() == "gn") {
