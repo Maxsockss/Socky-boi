@@ -119,6 +119,7 @@ client.on("message", async message => {
   var args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   var command = args.shift().toLowerCase();       
   
+  
   // A bunch of commands that look for responses.
 
   if (command == "hi") {
@@ -180,7 +181,9 @@ client.on("message", async message => {
     message.channel.send (["Everything not saved will be lost. \n - Nintendo quit screen","Just because you're trash doesn't mean you can't do great things. It's called Garbage Can, not Garbage Cannot.","People say nothing is impossible, but I do nothing every day.","An apple a day keeps anyone away if you throw it hard enough.","Dance like nobody's watching, because they aren't, welcome to gen Z; they're all on their phones.","Knowledge is knowing that a tomato is a fruit; wisdom is not putting it in a fruit salad.","Whenever you think life is boring, just remember we named it Rush hour and all you do is sit still in traffic.","Life is short, so is Levi Ackerman but hes still cool as heck","When nothing goes right, go left.","Whenever you think you can't spell, just look at Max trying to make these commands.","I'm tired of giving advice, could I interest you in a sarcastic comment?","If you're ever sad, just remember.. some people can't see when they close their eyes."][Math.floor(Math.random()*12
     )]);
   } 
-
+  if (message.content.slice(config.prefix.length).trim() == "rq") {
+    message.channel.send (["Which would you choose: \n Red pill for invisibility \n Blue pill for teleport","Would you rather live in a water house or a mansion? ","Would you rather use apple products or android products for the rest of your life ","Would you be a ride operator for the biggest dollar coaster in the world? ","Who’s your favorite celebrity","If you could choose one place to eat at where would you choose and why","People or animals ","What’s your favorite color of the pride flag?","Finish the vine “road work ahead...”","Game","Finish the vine “I need a church girl to church...”"][Math.floor(Math.random()*11)]);
+  }
 
   //Moderator exposing
 
