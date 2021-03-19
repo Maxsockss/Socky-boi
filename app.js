@@ -64,7 +64,7 @@ client.on("guildMemberRemove", async member => {
 
 // This code runs when the bot is ready.
 client.on("ready", () => {
-  client.user.setActivity('Robot more like roBITCH', { type: 'PLAYING' });
+  client.user.setActivity('Zeke go brr brr', { type: 'PLAYING' });
   console.log("Bot has started!");
 })
 
@@ -154,6 +154,11 @@ client.on("message", async message => {
   if (message.content.slice(config.prefix.length).trim() == "gn") {
     message.channel.send(["Goodnight, Sleep well! https://tenor.com/search/sleep-gifs","Goodnight! https://tenor.com/view/patrick-sleeping-bed-spongebob-gif-7518157","Sweet dreams! https://tenor.com/view/tonton-friends-sleep-gif-14535339 "," Im tired too https://tenor.com/view/peachcat-pillow-bedtime-goodnight-sleep-with-you-gif-14541089 "][Math.floor(Math.random()*5)]);
   }
+  ///Zeke yeager
+
+  if (message.content.slice(config.prefix.length).trim() == "LeviHi") {
+    message.channel.send(["||Shouldn't you be with erwin- oh wait.||","||Shouldn't you be with Hange- oh wait.||","Go clean something or some shit.","Can i talk to Ereh?"][Math.floor(Math.random()*4)]);
+  }
   
   if (message.content.slice(config.prefix.length).trim() == "hug") {
     message.channel.send (["Free hugs for all! https://tenor.com/view/milk-and-mocha-hug-cute-kawaii-love-gif-12535134","Free hugs for all! https://tenor.com/view/hug-anime-love-gif-7324587","Free hugs for all! https://tenor.com/view/hug-darker-than-black-anime-gif-13976210","Free hugs for all! https://tenor.com/view/seraph-love-hug-hugging-anime-gif-4900166","Thats pretty gay. https://tenor.com/view/smh-shake-my-head-cat-no-nope-gif-4864386"][Math.floor(Math.random()*5)]);
@@ -182,7 +187,7 @@ client.on("message", async message => {
     )]);
   } 
   if (message.content.slice(config.prefix.length).trim() == "rq") {
-    message.channel.send (["Which would you choose: \n Red pill for invisibility \n Blue pill for teleport","Would you rather live in a water house or a mansion? ","Would you rather use apple products or android products for the rest of your life ","Would you be a ride operator for the biggest dollar coaster in the world? ","Who’s your favorite celebrity","If you could choose one place to eat at where would you choose and why","People or animals ","What’s your favorite color of the pride flag?","Finish the vine “road work ahead...”","Game","Finish the vine “I need a church girl to church...”"][Math.floor(Math.random()*11)]);
+    message.channel.send (["Which would you choose: \n Red pill for invisibility \n Blue pill for teleport","Would you rather live in a water house or a mansion? ","Would you rather use apple products or android products for the rest of your life ","Would you be a ride operator for the biggest dollar coaster in the world? ","Who’s your favorite celebrity","If you could choose one place to eat at where would you choose and why","People or animals ","What’s your favorite color of the pride flag?","Finish the vine “road work ahead...”","Game","Finish the vine “I need a church girl to church...”","If You Had The World’s Attention For 30 Seconds, What Would You Say?","If You Had To Work But Didn’t Need The Money, What Would You Choose To Do?","If You Were Home On A Rainy Sunday Afternoon, What Movie Would You Most Want To See On Television?"," If You Could Dis-Invent One Thing, What Would It Be?","Is There An App That You Hate But Use Anyways?"," What Part Of The Human Face Is Your Favorite?"," Would You Rather Live (Permanently) In A Roller Coaster Park Or In A Zoo?","If You Inherited A Private Jet From A Stranger, What Would You Do With It?","Would You Rather Have Unlimited Sushi For Life Or Unlimited Tacos For Life?","If You Had All The Money In The World, What Would Be The First Thing You’d Buy?","What Are You Most Likely To Become Famous For?","What’s The Best Way To Spend A Rainy Afternoon?","What’s Your Least Favorite Mode Of Transportation?","If You Could Learn Any Language Fluently, What Would It Be?","Is Never Returning Something You Borrowed Considered Stealing? (Asking for a friend)","Favorite Day Of The Week?"][Math.floor(Math.random()*26)]);
   }
 
   //Moderator exposing
