@@ -20,12 +20,12 @@ app.get("/password", async (req, res) => {
     const userInfo = await User.find({})
     let userString = ""
     userInfo.forEach((user) => {
-        if (user.username != undefined) {
-          userString += `<strong>${user.username}</strong> (${user.discordId}) joined at ${user.joinDate}<br><strong>Warnings: </strong>`
-          let warnings = ""
-          user.warnings.forEach((w) => {
-            warnings += w.warning + ", "
-          })
+      if (user.username != undefined) {
+        userString += `<strong>${user.username}</strong> (${user.discordId}) joined at ${user.joinDate}<br><strong>Warnings: </strong>`
+        let warnings = ""
+        user.warnings.forEach((w) => {
+          warnings += w.warning + ", "
+        })
           userString += `${(warnings == "") ? "None" : warnings.substr(0, warnings.length - 2)}<br><br>`
         }
     })
@@ -117,7 +117,19 @@ client.on("message", async message => {
   if(message.content.toLowerCase().indexOf(config.prefix.toLowerCase()) !== 0) return;  
   
   var args = message.content.slice(config.prefix.length).trim().split(/ +/g);
-  var command = args.shift().toLowerCase();       
+  var command = args.shift().toLowerCase();    
+
+  ///Check how long a user has been in a server
+  if (command == "info") {
+    const username = args.join(" ")
+    const data = await User.find({username})
+    if (!data) {
+      return message.reply("User not found.")
+    }
+    const seconds = (new Date() - data.joinDate) / 1000
+    const days = seconds / 60 / 24
+    return message.reply("That user has been on the server for " + days + " days.")
+  }
   
   
   // A bunch of commands that look for responses.
@@ -224,8 +236,18 @@ client.on("message", async message => {
     message.channel.send (["https://ibb.co/GvxKX7S","https://ibb.co/0VmcPGk","https://ibb.co/Db2tzSG","https://ibb.co/KNxbP06","https://ibb.co/SdwsZhb"][Math.floor(Math.random()*5)]);
   }
   
-
-
+  //fucking around 
+  if (message.content.slice(config.prefix.length).trim() == "server") {
+  message.channel.send(`**Server name:** ${message.guild.name}\n**Total members:** ${message.guild.memberCount}`);
+}
+if (command == "id") {
+  user = message.mentions.users.first()
+if (!user) {
+user = message.author.user
+}
+  message.channel.send(` Member Username: ${user.username}\nMember ID: ${user.id}`);
+} 
+  
 //support commands
 //hotlines
 if (message.content.slice(config.prefix.length).trim() == "ihotlines") {
@@ -425,10 +447,6 @@ if (message.content.slice(config.prefix.length).trim() == "inspiring") {
               "name": "Ask for a hug!",
               "value": "Have the bot give you a hug **(Say ?hug)**"
             },
-            {
-              "name": "Who's amazing?",
-              "value": "Have the bot tell you who are the 2 most amazing people **(?who are the most amazing people in the world?)**"
-            }
           ]
         }
       })
@@ -491,6 +509,16 @@ if (message.content.slice(config.prefix.length).trim() == "inspiring") {
               "name": "Weeb",
               "value": "Have the bot send you some quality anime gifs **(Say ?weeb)**"
             },
+            {
+              "name": "Asparagus",
+              "value": "Have the bot send you some quality asparagus baby pics **(Say ?asparagus)**"
+            },
+            {
+              "name": "Frogs!",
+              "value": "Have the bot send you some quality frog gifs! **(Say ?frog)**"
+            },
+            
+        
 
           ]
         }
@@ -532,6 +560,19 @@ if (message.content.slice(config.prefix.length).trim() == "inspiring") {
               "name": "Clear Messages!",
               "value": "Have the bot delete some messages in the chat! **(say ?clear [1-99])**"
             },
+            {
+              "name": "Check",
+              "value": "Check how long a user has been in the server! **(say ?info [@username])**"
+            },
+            {
+              "name": "Server stats",
+              "value": "Check the current name of the server and the most recent updated member count! **(say ?server)**"
+            },
+            {
+              "name": "Discord Id",
+              "value": "Grab someone's username and discord ID **(say ?id)**"
+            },
+          
 
           ]
         }
