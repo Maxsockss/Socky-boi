@@ -202,6 +202,48 @@ client.on("message", async message => {
     message.channel.send (["Which would you choose: \n Red pill for invisibility \n Blue pill for teleport","Would you rather live in a water house or a mansion? ","Would you rather use apple products or android products for the rest of your life ","Would you be a ride operator for the biggest dollar coaster in the world? ","Who’s your favorite celebrity","If you could choose one place to eat at where would you choose and why","People or animals ","What’s your favorite color of the pride flag?","Finish the vine “road work ahead...”","Game","Finish the vine “I need a church girl to church...”","If You Had The World’s Attention For 30 Seconds, What Would You Say?","If You Had To Work But Didn’t Need The Money, What Would You Choose To Do?","If You Were Home On A Rainy Sunday Afternoon, What Movie Would You Most Want To See On Television?"," If You Could Dis-Invent One Thing, What Would It Be?","Is There An App That You Hate But Use Anyways?"," What Part Of The Human Face Is Your Favorite?"," Would You Rather Live (Permanently) In A Roller Coaster Park Or In A Zoo?","If You Inherited A Private Jet From A Stranger, What Would You Do With It?","Would You Rather Have Unlimited Sushi For Life Or Unlimited Tacos For Life?","If You Had All The Money In The World, What Would Be The First Thing You’d Buy?","What Are You Most Likely To Become Famous For?","What’s The Best Way To Spend A Rainy Afternoon?","What’s Your Least Favorite Mode Of Transportation?","If You Could Learn Any Language Fluently, What Would It Be?","Is Never Returning Something You Borrowed Considered Stealing? (Asking for a friend)","Favorite Day Of The Week?","If you could replace all of the grass in the world with something else, what would it be?","What movie would be greatly improved if it was made into a musical?","What is something that is really popular now, but in 5 years everyone will look back on and be embarrassed by?","If animals could talk, which would be the rudest?","Which animal do you think would be the most polite?","If you had the power to shrink any one object and carry it with yo in your pocket, which item would it be?","What’s the most ridiculous fact you know?","What’s the best type of cheese?","If the all the States in the USA were represented by food, what food would each state be represented by?","If you would create a holiday, what would it be called and how would we celebrate it? When would this holiday be?","Is a hotdog a sandwich?","What mythical creature would improve the world most if it existed?","How do you feel about putting pineapple on pizza?","Do you fold your pizza when you eat it?","If you had to become an inanimate object for a year, what object would it be?","If you could only eat one food item for the rest of your life, what would it be?","If peanut butter wasn’t called peanut butter, what would it be called?","Toilet paper, over or under?","What fictional character is amazing in their book / show / movie, but would be insufferable if you had to deal with them in mundane everyday situations?","Is cereal soup?","Would you rather sweat melted cheese or have snakes for hair?","What’s the most beautiful place you’ve ever been?","What are your 3 favorite movies?","How would you describe me to your friends?","If you could live in any TV home, what would it be?","If you could eat only 3 foods for the rest of your life, what would they be?","If you could be a cartoon character for a week, who would you be?","If you could be an Olympic athlete, in what sport would you compete?","If you had to live in a different state, what would it be?","What’s your favorite smell in the whole world?","You have lost the game.","Consider yourself rickrolled."][Math.floor(Math.random()*58)]);
   }
 
+  //intentionally annoying commands
+
+  if (message.content.slice(config.prefix.length).trim() == "no") {
+    message.channel.send("Of Course not, I'm just messing around! ^^")
+  }
+
+  if (command == ".hi") {
+    message.channel.send ("Hello Max, My lovely creator, you just lost the game! As well as a rickroll.")
+    message.delete();
+    console.log
+    } 
+    if (command == "onion") {
+      message.channel.send ("Tell Onion and Rea I said Hii!")
+      message.delete();
+      console.log
+      } 
+      if (command == "sw") {
+        message.channel.send ("Sleep Well!")
+        message.delete();
+        console.log
+        } 
+        if (command == "hg") {
+          message.channel.send ("Hi Everyone!")
+          message.delete();
+          console.log
+          } 
+          if (command == "adios") {
+            message.channel.send ("https://ibb.co/z8fQs8Z")
+            message.delete();
+            console.log
+            } 
+            if (command == "su") {
+              message.channel.send ("Shut up Max")
+              message.delete();
+              console.log
+              } 
+              if (command == "leedle") {
+                message.channel.send ("LEEDLE LEEDLE LEEDLE LEE https://tenor.com/view/sponge-bob-patrick-leedle-gif-5888488")
+                message.delete();
+                console.log
+                } 
+
   //Moderator exposing
 
   if (message.content.slice(config.prefix.length).trim() == "emax") {
