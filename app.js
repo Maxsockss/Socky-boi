@@ -198,6 +198,11 @@ client.on("message", async message => {
                 if (command == "suggest") {
                   message.channel.send ("https://forms.gle/rKZCc9zNbjKNLMDv7")
                   } 
+                  if (message.content.slice(config.prefix.length).trim() == "pat") {
+                    message.channel.send (["https://tenor.com/view/pat-good-boy-gif-7220650","https://tenor.com/view/funny-dog-cat-patting-head-gif-4953911","https://tenor.com/view/ao-haru-ride-anime-boy-anime-girl-anime-couple-couple-gif-13576017","https://tenor.com/view/cat-duck-pat-head-cute-gif-17539471","https://tenor.com/view/bunny-too-cute-adorable-head-pat-cute-gif-17246426","https://tenor.com/view/lub-lub-lub-shark-shark-love-catscafe-gif-15488241","https://tenor.com/view/pet-pat-anime-kawaii-cute-gif-13236885","https://tenor.com/view/soe-salome-gschwind-nori-pat-gif-21219489","https://tenor.com/view/levi-ackerman-levi-ackerman-headpat-levi-headpat-attack-on-titan-gif-20696207","https://tenor.com/view/pat-gif-19836590","https://tenor.com/view/horimiya-pat-pat-anime-yuki-yoshikawa-tooru-ishikawa-gif-20865201"][Math.floor(Math.random()*11
+                    )]);
+                  }
+                  
   //Moderator exposing
 
   if (message.content.slice(config.prefix.length).trim() == "emax") {
@@ -231,9 +236,12 @@ client.on("message", async message => {
   if (message.content.slice(config.prefix.length).trim() == "asparagus") {
     message.channel.send (["https://ibb.co/GvxKX7S","https://ibb.co/0VmcPGk","https://ibb.co/Db2tzSG","https://ibb.co/KNxbP06","https://ibb.co/SdwsZhb"][Math.floor(Math.random()*5)]);
   }
-  
+  if (command == "owa") {
+    message.channel.send (" **OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA O OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA O OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA O OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA OWA** \n -Tuesday 2021 ")
+    } 
 
 //support commands
+
 //hotlines
 if (message.content.slice(config.prefix.length).trim() == "ihotlines") {
   message.channel.send({"embed": {  
@@ -545,7 +553,10 @@ if (message.content.slice(config.prefix.length).trim() == "inspiring") {
               "name": "Sleep well!",
               "value": "Have the bot tell someone to sleep well. **(Say ?sw)**"
             },
-            
+            {
+              "name": "Headpat",
+              "value": "Have the bot give you a nice little headpat **(Say ?pat)**"
+            }
         
 
           ]
