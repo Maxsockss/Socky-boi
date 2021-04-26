@@ -477,7 +477,7 @@ if (message.content.slice(config.prefix.length).trim() == "inspiring") {
       message.channel.send({
         "embed": {
           "title": "**Lgbtstripes Commands **",
-          "color": 10038562,
+          "color": 15105570,
           "thumbnail": {
             "url": "https://i.ibb.co/Qd897Py/b4844ea372818413347012c27e194798.jpg"
           },
