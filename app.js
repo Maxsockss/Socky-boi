@@ -64,7 +64,7 @@ client.on("guildMemberRemove", async member => {
 
 // This code runs when the bot is ready.
 client.on("ready", () => {
-  client.user.setActivity('Zeke go brr brr', { type: 'PLAYING' });
+  client.user.setActivity('Game? Lost.', { type: 'PLAYING' });
   console.log("Bot has started!");
 })
 
@@ -97,22 +97,7 @@ client.on("message", async message => {
     const newUser = new User({discordId: sender.id, username: sender.username})
     await newUser.save()
   }
-  
-  //Trigger words filter.
-  const triggerWords = []
-  const hasTriggerWord = triggerWords.some((word) => message.content.toLowerCase().includes(word))
-  if (hasTriggerWord){
-    const currentServer = await Server.findOne({discordId: message.guild.id})
-    if (!currentServer.adminChannel) return
-    let targetChannel = message.guild.channels.cache.find(channel => channel.id == currentServer.adminChannel);
-    targetChannel.send({"embed": {
-    "title": "Bad Word Detected!",
-    "description":message.author.username + " said " + message.content + ". Warn them if you must."
-     }}) 
-     message.delete()
-    return message.reply("Please don't say that as it could be triggering, :(  your message is being audited by staff and you may recieve a warning")
-   }
-  
+    
   // If the message doesn't begin with our prefix, we stop the code here.
   if(message.content.toLowerCase().indexOf(config.prefix.toLowerCase()) !== 0) return;  
   
@@ -132,11 +117,9 @@ client.on("message", async message => {
   }
   
   
-  // A bunch of commands that look for responses.
+  // A bunch of commands that send varied gif responses.
 
-  if (command == "hi") {
-    message.reply("Hello!");
-  }
+
   if (command == "laugh") {
     message.reply(["https://tenor.com/view/shinya-laugh-anime-gif-11580441","https://tenor.com/view/sasuke-sasuke-laugh-sasuke-react-naruto-anime-react-gif-17940593","https://tenor.com/view/eriko-princess-connect-re-dive-anime-laugh-gif-17341266","https://tenor.com/view/chuckle-giggle-laugh-anime-boy-gif-17768541"][Math.floor(Math.random()*4)]);
   }
@@ -156,94 +139,65 @@ client.on("message", async message => {
   if (message.content.slice(config.prefix.length).trim() == "rat") {
     message.channel.send (["https://tenor.com/view/rat-post-this-rat-rats-rat-dance-bouncing-rat-gif-16831053","https://tenor.com/view/rat-banner-gif-18467093","https://tenor.com/view/rat-stealing-pizza-jumping-gif-18609834","https://tenor.com/view/rat-bathing-rat-taking-abath-rat-in-sink-rodent-gif-18309165","https://tenor.com/view/rat-shower-god-cute-gif-18332281","https://tenor.com/view/trickortreat-candy-mouse-halloween-gif-4582381","https://tenor.com/view/rat-trumpet-glitch-musical-intrument-gif-17146530","https://tenor.com/view/happy-year-of-the-happy-rat-pet-rat-cute-adorable-belly-rub-gif-16192760","https://tenor.com/view/rat-petting-gif-10511968","https://tenor.com/view/rats-queen-rat-queen-princess-rat-gif-4882771","https://tenor.com/view/rat-eating-spaghetti-cute-gif-11451413","https://tenor.com/view/rat-gif-10942909"][Math.floor(Math.random()*12)]);
   }
+  if (message.content.slice(config.prefix.length).trim() == "weeb") {
+    message.channel.send (["https://tenor.com/view/excited-kirishima-mha-bnha-gif-19438290","https://tenor.com/view/bokunoheroacademia-midoriya-izuku-deku-gif-9214816","https://tenor.com/view/anime-my-hero-academia-serious-gif-12997052","https://tenor.com/view/sailor-moon-suit-old-man-peace-sign-sailor-scout-anime-gif-14298094","https://tenor.com/view/anime-love-cute-smile-gif-15836771","https://tenor.com/view/anime-anime-glasses-stare-glasses-gif-15313333","SIMP https://tenor.com/view/anime-gif-18634855","https://tenor.com/view/yawn-tired-anime-gif-9525859","https://tenor.com/view/trash-disappointed-no-sad-bye-gif-5005980","https://tenor.com/view/okay-yay-anime-gif-9672741","https://tenor.com/view/anime-dance-girl-animedance-gif-7560548","https://tenor.com/view/anime-logic-fly-gif-4880117","https://tenor.com/view/my-little-monster-anime-when-your-mom-tries-to-take-pictures-of-you-family-funny-gif-11802984","https://tenor.com/view/naegi-nagito-hajime-hope-hopesquad-gif-10646324","https://tenor.com/view/danganrompa-monokuma-punishment-anime-execution-gif-17163417","https://tenor.com/view/anime-anime-glasses-stare-glasses-gif-15313333","https://tenor.com/view/anime-gif-18634855","https://tenor.com/view/bokuno-hero-academia-izuku-midoriya-deku-happy-gif-12815749","https://tenor.com/view/cute-anime-cat-dancing-happy-gif-8413959","https://tenor.com/view/boku-no-hero-academia-gif-19160786","https://tenor.com/view/todoroki-boku-no-hero-academia-surprised-todoroki-surprised-boku-no-hero-academia4-gif-18870354","https://tenor.com/view/keigo-takami-boku-no-hero-academia-me-hero-academia-hawks-gif-18362794","https://tenor.com/view/eijiro-otaku-talking-my-hero-academia-boku-no-hero-academia-gif-17920601","https://tenor.com/view/boku-no-hero-academia-anime-sleep-gif-10138904","https://tenor.com/view/todoroki-shoto-todoroki-boku-no-hero-academia-gif-19232615","https://tenor.com/view/todoroki-gif-8850537","https://tenor.com/view/hawks-bnha-hero-keigo-takami-gif-19616942","https://tenor.com/view/hawks-keigo-takami-73181520-gif-18124433","https://tenor.com/view/anime-blackbutler-sebastian-bow-gif-8578229","https://tenor.com/view/heart-undertaker-book-of-atlantic-gif-10900091","https://tenor.com/view/blackbutler-kuroshitsuji-cielphantomhive-sebastianmichaelis-huh-gif-9703590","https://tenor.com/view/black-butler-ciel-smile-wink-anime-gif-6202171","https://tenor.com/view/black-butler-gif-5122288","https://tenor.com/view/anime-sebastian-black-butler-book-of-atlantic-smile-gif-13097197","https://tenor.com/view/black-butler-fabulous-anime-open-door-red-hair-gif-17584872","https://tenor.com/view/black-butler-uwuq-gif-18101923","https://tenor.com/view/black-butler-sebastian-ciel-go-away-bye-gif-15951532","https://tenor.com/view/ciel-black-butler-gif-15301530","https://tenor.com/view/ciel-phantom-hive-black-butler-gif-11102758"][Math.floor(Math.random()*30)]);
+  }
+  if (message.content.slice(config.prefix.length).trim() == "gn") {
+    message.channel.send(["Goodnight, Sleep well! https://tenor.com/search/sleep-gifs","Goodnight! https://tenor.com/view/patrick-sleeping-bed-spongebob-gif-7518157","Sweet dreams! https://tenor.com/view/tonton-friends-sleep-gif-14535339 "," Im tired too https://tenor.com/view/peachcat-pillow-bedtime-goodnight-sleep-with-you-gif-14541089 "][Math.floor(Math.random()*5)]);
+  }
+  if (message.content.slice(config.prefix.length).trim() == "hug") {
+    message.channel.send (["Free hugs for all! https://tenor.com/view/milk-and-mocha-hug-cute-kawaii-love-gif-12535134","Free hugs for all! https://tenor.com/view/hug-anime-love-gif-7324587","Free hugs for all! https://tenor.com/view/hug-darker-than-black-anime-gif-13976210","Free hugs for all! https://tenor.com/view/seraph-love-hug-hugging-anime-gif-4900166","Thats pretty gay. https://tenor.com/view/smh-shake-my-head-cat-no-nope-gif-4864386"][Math.floor(Math.random()*5)]);
+  }
   if (message.content.slice(config.prefix.length).trim() == "you're gay") {
-    message.channel.send("I Know","No you")
+    message.channel.send("No you")
   }
   if (message.content.slice(config.prefix.length).trim() == "fuck you") {
     message.author.send (["Please dont curse :pleading_face: :point_right: :point_left: ","No no FUCK YOU","excuse me?"][Math.floor(Math.random()*3)]);
     console.log(Math.random()*3)
   }
-  if (message.content.slice(config.prefix.length).trim() == "gn") {
-    message.channel.send(["Goodnight, Sleep well! https://tenor.com/search/sleep-gifs","Goodnight! https://tenor.com/view/patrick-sleeping-bed-spongebob-gif-7518157","Sweet dreams! https://tenor.com/view/tonton-friends-sleep-gif-14535339 "," Im tired too https://tenor.com/view/peachcat-pillow-bedtime-goodnight-sleep-with-you-gif-14541089 "][Math.floor(Math.random()*5)]);
-  }
-  ///Zeke yeager
-
-  if (message.content.slice(config.prefix.length).trim() == "LeviHi") {
-    message.channel.send(["||Shouldn't you be with erwin- oh wait.||","||Shouldn't you be with Hange- oh wait.||","Go clean something or some shit.","Can i talk to Ereh?"][Math.floor(Math.random()*4)]);
-  }
-  
-  if (message.content.slice(config.prefix.length).trim() == "hug") {
-    message.channel.send (["Free hugs for all! https://tenor.com/view/milk-and-mocha-hug-cute-kawaii-love-gif-12535134","Free hugs for all! https://tenor.com/view/hug-anime-love-gif-7324587","Free hugs for all! https://tenor.com/view/hug-darker-than-black-anime-gif-13976210","Free hugs for all! https://tenor.com/view/seraph-love-hug-hugging-anime-gif-4900166","Thats pretty gay. https://tenor.com/view/smh-shake-my-head-cat-no-nope-gif-4864386"][Math.floor(Math.random()*5)]);
-  }
-
   if (message.content.slice(config.prefix.length).trim() == "gay") {
     message.channel.send (["Gay for days >~< https://tenor.com/view/pride-gay-marriage-lgbt-flag-gif-4314904","https://tenor.com/view/really-what-gif-19132749","He dummy thic https://tenor.com/view/big-ass-sponge-bob-square-pants-lgbt-pride-gif-4998019","Sponge says trans rights https://tenor.com/view/queer-rainbow-hands-rainbow-spongebob-squarepants-squarepants-gif-5896065","I want a pride flag :( https://tenor.com/view/lgbt-community-rainbow-flag-gif-13896550","FEEL THE HOMOSEXUALITY https://tenor.com/view/lgbt-rainbow-shine-beam-light-gif-12010762","Pride puppy https://tenor.com/view/dog-cute-happy-samoyed-puppy-gif-14818829","Sounds gay im in https://tenor.com/view/community-chang-gay-gaaaaay-queer-gif-18064201","ooo RAINBOWS https://tenor.com/view/love-heart-lgbt-rainbow-gif-14797188","Yes sorry to break it to you pal https://tenor.com/view/lgbt-rainbow-pride-gif-12040565","Damn right https://tenor.com/view/lgbt-lol-bitch-gif-11484399"][Math.floor(Math.random()*11)]);
   }
   if (message.content.slice(config.prefix.length).trim() == "gts") {
     message.channel.send (["Get your ass to sleep","What are you doing up?","Sleep or no hugs","Sleep now."][Math.floor(Math.random()*4)]);
   }
-  if (message.content.slice(config.prefix.length).trim() == "weeb") {
-    message.channel.send (["https://tenor.com/view/excited-kirishima-mha-bnha-gif-19438290","https://tenor.com/view/bokunoheroacademia-midoriya-izuku-deku-gif-9214816","https://tenor.com/view/anime-my-hero-academia-serious-gif-12997052","https://tenor.com/view/sailor-moon-suit-old-man-peace-sign-sailor-scout-anime-gif-14298094","https://tenor.com/view/anime-love-cute-smile-gif-15836771","https://tenor.com/view/anime-anime-glasses-stare-glasses-gif-15313333","SIMP https://tenor.com/view/anime-gif-18634855","https://tenor.com/view/yawn-tired-anime-gif-9525859","https://tenor.com/view/trash-disappointed-no-sad-bye-gif-5005980","https://tenor.com/view/okay-yay-anime-gif-9672741","https://tenor.com/view/anime-dance-girl-animedance-gif-7560548","https://tenor.com/view/anime-logic-fly-gif-4880117","https://tenor.com/view/my-little-monster-anime-when-your-mom-tries-to-take-pictures-of-you-family-funny-gif-11802984","https://tenor.com/view/naegi-nagito-hajime-hope-hopesquad-gif-10646324","https://tenor.com/view/danganrompa-monokuma-punishment-anime-execution-gif-17163417","https://tenor.com/view/anime-anime-glasses-stare-glasses-gif-15313333","https://tenor.com/view/anime-gif-18634855","https://tenor.com/view/bokuno-hero-academia-izuku-midoriya-deku-happy-gif-12815749","https://tenor.com/view/cute-anime-cat-dancing-happy-gif-8413959","https://tenor.com/view/boku-no-hero-academia-gif-19160786","https://tenor.com/view/todoroki-boku-no-hero-academia-surprised-todoroki-surprised-boku-no-hero-academia4-gif-18870354","https://tenor.com/view/keigo-takami-boku-no-hero-academia-me-hero-academia-hawks-gif-18362794","https://tenor.com/view/eijiro-otaku-talking-my-hero-academia-boku-no-hero-academia-gif-17920601","https://tenor.com/view/boku-no-hero-academia-anime-sleep-gif-10138904","https://tenor.com/view/todoroki-shoto-todoroki-boku-no-hero-academia-gif-19232615","https://tenor.com/view/todoroki-gif-8850537","https://tenor.com/view/hawks-bnha-hero-keigo-takami-gif-19616942","https://tenor.com/view/hawks-keigo-takami-73181520-gif-18124433","https://tenor.com/view/anime-blackbutler-sebastian-bow-gif-8578229","https://tenor.com/view/heart-undertaker-book-of-atlantic-gif-10900091","https://tenor.com/view/blackbutler-kuroshitsuji-cielphantomhive-sebastianmichaelis-huh-gif-9703590","https://tenor.com/view/black-butler-ciel-smile-wink-anime-gif-6202171","https://tenor.com/view/black-butler-gif-5122288","https://tenor.com/view/anime-sebastian-black-butler-book-of-atlantic-smile-gif-13097197","https://tenor.com/view/black-butler-fabulous-anime-open-door-red-hair-gif-17584872","https://tenor.com/view/black-butler-uwuq-gif-18101923","https://tenor.com/view/black-butler-sebastian-ciel-go-away-bye-gif-15951532","https://tenor.com/view/ciel-black-butler-gif-15301530","https://tenor.com/view/ciel-phantom-hive-black-butler-gif-11102758"][Math.floor(Math.random()*30)]);
-  }
-  ///Lost the game///
+
+
+  //Misc fun commands//
   if (message.content.slice(config.prefix.length).trim() == "g") {
     message.channel.send (["You just lost the game MWAHAHAHAHAHAH","Get rick rolled lololololol (also u lost the game)","Did someone say...GAME..? dang i lost again :("][Math.floor(Math.random()*3)]);
   }
-   ///This Or that///
-   if (message.content.slice(config.prefix.length).trim() == "tot") {
-    message.channel.send (["Board Games or Card Games?","Video Games or Books?","Physical Books or Digital Books?","Summer or Winter?","Shower or Bath?","Call or Text- nevermind you're all gay i don't even need to ask that","Cake or Pie?","Instagram or Discord?","Pen or Pencil?","Giving or recieving?","Iced Tea or Hot Tea?","Desktop or Laptop?","Jeans or Sweatpants?","Pepsi or Coke?","Tattoos or Piercings?","Reading or Music?","Chicken Nuggets or Hotdogs?","Apple or Android?","Reading or Writing?","Fingerless Gloves or Normal Gloves?","Phone or Ipad?","Yag or Me :(","Hot or Cold","Water or Soda?","Heroes or Villans?","Socks or Barefoot?"][Math.floor(Math.random()*26)]);
+  if (command == "hi") {
+    message.reply("Hello!");
   }
-
   if (message.content.slice(config.prefix.length).trim() == "advice") {
     message.channel.send (["Everything not saved will be lost. \n - Nintendo quit screen","Just because you're trash doesn't mean you can't do great things. It's called Garbage Can, not Garbage Cannot.","People say nothing is impossible, but I do nothing every day.","An apple a day keeps anyone away if you throw it hard enough.","Dance like nobody's watching, because they aren't, welcome to gen Z; they're all on their phones.","Knowledge is knowing that a tomato is a fruit; wisdom is not putting it in a fruit salad.","Whenever you think life is boring, just remember we named it Rush hour and all you do is sit still in traffic.","Life is short, so is Levi Ackerman but hes still cool as heck","When nothing goes right, go left.","Whenever you think you can't spell, just look at Max trying to make these commands.","I'm tired of giving advice, could I interest you in a sarcastic comment?","If you're ever sad, just remember.. some people can't see when they close their eyes."][Math.floor(Math.random()*12
     )]);
   } 
   if (message.content.slice(config.prefix.length).trim() == "rq") {
-    message.channel.send (["Which would you choose: \n Red pill for invisibility \n Blue pill for teleport","Would you rather live in a water house or a mansion? ","Would you rather use apple products or android products for the rest of your life ","Would you be a ride operator for the biggest dollar coaster in the world? ","Who’s your favorite celebrity","If you could choose one place to eat at where would you choose and why","People or animals ","What’s your favorite color of the pride flag?","Finish the vine “road work ahead...”","Game","Finish the vine “I need a church girl to church...”","If You Had The World’s Attention For 30 Seconds, What Would You Say?","If You Had To Work But Didn’t Need The Money, What Would You Choose To Do?","If You Were Home On A Rainy Sunday Afternoon, What Movie Would You Most Want To See On Television?"," If You Could Dis-Invent One Thing, What Would It Be?","Is There An App That You Hate But Use Anyways?"," What Part Of The Human Face Is Your Favorite?"," Would You Rather Live (Permanently) In A Roller Coaster Park Or In A Zoo?","If You Inherited A Private Jet From A Stranger, What Would You Do With It?","Would You Rather Have Unlimited Sushi For Life Or Unlimited Tacos For Life?","If You Had All The Money In The World, What Would Be The First Thing You’d Buy?","What Are You Most Likely To Become Famous For?","What’s The Best Way To Spend A Rainy Afternoon?","What’s Your Least Favorite Mode Of Transportation?","If You Could Learn Any Language Fluently, What Would It Be?","Is Never Returning Something You Borrowed Considered Stealing? (Asking for a friend)","Favorite Day Of The Week?","If you could replace all of the grass in the world with something else, what would it be?","What movie would be greatly improved if it was made into a musical?","What is something that is really popular now, but in 5 years everyone will look back on and be embarrassed by?","If animals could talk, which would be the rudest?","Which animal do you think would be the most polite?","If you had the power to shrink any one object and carry it with yo in your pocket, which item would it be?","What’s the most ridiculous fact you know?","What’s the best type of cheese?","If the all the States in the USA were represented by food, what food would each state be represented by?","If you would create a holiday, what would it be called and how would we celebrate it? When would this holiday be?","Is a hotdog a sandwich?","What mythical creature would improve the world most if it existed?","How do you feel about putting pineapple on pizza?","Do you fold your pizza when you eat it?","If you had to become an inanimate object for a year, what object would it be?","If you could only eat one food item for the rest of your life, what would it be?","If peanut butter wasn’t called peanut butter, what would it be called?","Toilet paper, over or under?","What fictional character is amazing in their book / show / movie, but would be insufferable if you had to deal with them in mundane everyday situations?","Is cereal soup?","Would you rather sweat melted cheese or have snakes for hair?","What’s the most beautiful place you’ve ever been?","What are your 3 favorite movies?","How would you describe me to your friends?","If you could live in any TV home, what would it be?","If you could eat only 3 foods for the rest of your life, what would they be?","If you could be a cartoon character for a week, who would you be?","If you could be an Olympic athlete, in what sport would you compete?","If you had to live in a different state, what would it be?","What’s your favorite smell in the whole world?","You have lost the game.","Consider yourself rickrolled."][Math.floor(Math.random()*58)]);
+    message.channel.send (["Which would you choose: \n Red pill for invisibility \n Blue pill for teleport","Would you rather live in a water house or a mansion? ","Would you rather use apple products or android products for the rest of your life ","Would you be a ride operator for the biggest dollar coaster in the world? ","Who’s your favorite celebrity","If you could choose one place to eat at where would you choose and why","People or animals ","What’s your favorite color of the pride flag?","Finish the vine “road work ahead...”","Game","Finish the vine “I need a church girl to church...”","If You Had The World’s Attention For 30 Seconds, What Would You Say?","If You Had To Work But Didn’t Need The Money, What Would You Choose To Do?","If You Were Home On A Rainy Sunday Afternoon, What Movie Would You Most Want To See On Television?"," If You Could Dis-Invent One Thing, What Would It Be?","Is There An App That You Hate But Use Anyways?"," What Part Of The Human Face Is Your Favorite?"," Would You Rather Live (Permanently) In A Roller Coaster Park Or In A Zoo?","If You Inherited A Private Jet From A Stranger, What Would You Do With It?","Would You Rather Have Unlimited Sushi For Life Or Unlimited Tacos For Life?","If You Had All The Money In The World, What Would Be The First Thing You’d Buy?","What Are You Most Likely To Become Famous For?","What’s The Best Way To Spend A Rainy Afternoon?","What’s Your Least Favorite Mode Of Transportation?","If You Could Learn Any Language Fluently, What Would It Be?","Is Never Returning Something You Borrowed Considered Stealing? (Asking for a friend)","Favorite Day Of The Week?","If you could replace all of the grass in the world with something else, what would it be?","What movie would be greatly improved if it was made into a musical?","What is something that is really popular now, but in 5 years everyone will look back on and be embarrassed by?","If animals could talk, which would be the rudest?","Which animal do you think would be the most polite?","If you had the power to shrink any one object and carry it with yo in your pocket, which item would it be?","What’s the most ridiculous fact you know?","What’s the best type of cheese?","If the all the States in the USA were represented by food, what food would each state be represented by?","If you would create a holiday, what would it be called and how would we celebrate it? When would this holiday be?","Is a hotdog a sandwich?","What mythical creature would improve the world most if it existed?","How do you feel about putting pineapple on pizza?","Do you fold your pizza when you eat it?","If you had to become an inanimate object for a year, what object would it be?","If you could only eat one food item for the rest of your life, what would it be?","If peanut butter wasn’t called peanut butter, what would it be called?","Toilet paper, over or under?","What fictional character is amazing in their book / show / movie, but would be insufferable if you had to deal with them in mundane everyday situations?","Is cereal soup?","Would you rather sweat melted cheese or have snakes for hair?","What’s the most beautiful place you’ve ever been?","What are your 3 favorite movies?","How would you describe me to your friends?","If you could live in any TV home, what would it be?","If you could eat only 3 foods for the rest of your life, what would they be?","If you could be a cartoon character for a week, who would you be?","If you could be an Olympic athlete, in what sport would you compete?","If you had to live in a different state, what would it be?","What’s your favorite smell in the whole world?","You have lost the game.","Consider yourself rickrolled.","What's the best way of confronting your plumber on how bad of a job they did?","Have you ever had the desire to write your initials in wet cement?","Bicycle or tricycle?","What's the last time you spilled toothpaste on the floor?","If you could travel to any planet, which one would it be?","What would you do if you could walk on water?","Do you enjoy eating paper?","What would you do if 10 rabbits suddenly appeared in your living room?","Would you carry an anvil to the south pole? Why?","What would you do if you grew gills?","What kind of daily activities would become more fun if your best friend was a black hole?","Is it valid to drive on the opposite side of the road in reverse?","Do you own anything that hasn't been invented yet? If so, what is it and how do you make it? (Asking for a friend)"," Would you purposefully cause an avalanche of cheese wheels?","What's the most fun way to violate the laws of thermodynamics?","Would you rather make soap or candles?","What's a random item that could be used as an alternative to flower pots?","What's your go-to computer game?","What's the barrier between something that's conscious and something that's not?","What's your favorite out of the 4 elements?","What's the difference between random noise and music?","Board Games or Card Games?","Video Games or Books?","Physical Books or Digital Books?","Summer or Winter?","Shower or Bath?","Call or Text- nevermind you're all gay i don't even need to ask that","Cake or Pie?","Instagram or Discord?","Pen or Pencil?","Giving or recieving?","Iced Tea or Hot Tea?","Desktop or Laptop?","Jeans or Sweatpants?","Pepsi or Coke?","Tattoos or Piercings?","Reading or Music?","Chicken Nuggets or Hotdogs?","Apple or Android?","Reading or Writing?","Fingerless Gloves or Normal Gloves?","Phone or Ipad?","Yag or Me :(","Hot or Cold","Water or Soda?","Heroes or Villans?","Socks or Barefoot?"][Math.floor(Math.random()*105)]);
   }
-
-  //intentionally annoying commands
-
-  if (message.content.slice(config.prefix.length).trim() == "no") {
-    message.channel.send("Of Course not, I'm just messing around! ^^")
-  }
-
-  if (command == ".hi") {
-    message.channel.send ("Hello Max, My lovely creator, you just lost the game! As well as a rickroll.")
-    message.delete();
-    console.log
-    } 
-    if (command == "onion") {
-      message.channel.send ("Tell Onion and Rea I said Hii!")
-      message.delete();
-      console.log
-      } 
-      if (command == "sw") {
+     if (command == "sw") {
         message.channel.send ("Sleep Well!")
         message.delete();
         console.log
         } 
-        if (command == "hg") {
-          message.channel.send ("Hi Everyone!")
+
+        if (command == "adios") {
+          message.channel.send ("https://ibb.co/z8fQs8Z")
           message.delete();
           console.log
           } 
-          if (command == "adios") {
-            message.channel.send ("https://ibb.co/z8fQs8Z")
-            message.delete();
-            console.log
-            } 
-            if (command == "su") {
-              message.channel.send ("Shut up Max")
-              message.delete();
-              console.log
-              } 
+
               if (command == "leedle") {
                 message.channel.send ("LEEDLE LEEDLE LEEDLE LEE https://tenor.com/view/sponge-bob-patrick-leedle-gif-5888488")
                 message.delete();
                 console.log
                 } 
 
+                if (command == "suggest") {
+                  message.channel.send ("https://forms.gle/rKZCc9zNbjKNLMDv7")
+                  } 
   //Moderator exposing
 
   if (message.content.slice(config.prefix.length).trim() == "emax") {
@@ -278,18 +232,7 @@ client.on("message", async message => {
     message.channel.send (["https://ibb.co/GvxKX7S","https://ibb.co/0VmcPGk","https://ibb.co/Db2tzSG","https://ibb.co/KNxbP06","https://ibb.co/SdwsZhb"][Math.floor(Math.random()*5)]);
   }
   
-  //fucking around 
-  if (message.content.slice(config.prefix.length).trim() == "server") {
-  message.channel.send(`**Server name:** ${message.guild.name}\n**Total members:** ${message.guild.memberCount}`);
-}
-if (command == "id") {
-  user = message.mentions.users.first()
-if (!user) {
-user = message.author.user
-}
-  message.channel.send(` Member Username: ${user.username}\nMember ID: ${user.id}`);
-} 
-  
+
 //support commands
 //hotlines
 if (message.content.slice(config.prefix.length).trim() == "ihotlines") {
@@ -423,7 +366,7 @@ if (message.content.slice(config.prefix.length).trim() == "inspiring") {
    if (args[0]) { 
      category = args[0].trim().toLowerCase();
     }
-    const allowedCategories = ["general", "fun", "admin","support"]
+    const allowedCategories = ["general", "fun", "admin","support","animals"]
     if (!category || !allowedCategories.includes(category)) {
       message.channel.send({
         "embed": {
@@ -448,6 +391,10 @@ if (message.content.slice(config.prefix.length).trim() == "inspiring") {
             {
               "name": config.prefix + "lhelp support",
               "value": "Have bot list out the support commands!"
+            },
+            {
+              "name": config.prefix + "lhelp animals",
+              "value": "Have bot list out the commands that will result in animals!"
             }
           ]
         }
@@ -456,38 +403,42 @@ if (message.content.slice(config.prefix.length).trim() == "inspiring") {
       message.channel.send({
         "embed": {
           "title": "**Lgbtstripes Commands **",
-          "color": 10038562,
+          "color": 2123412,
           "thumbnail": {
             "url": "https://i.ibb.co/Qd897Py/b4844ea372818413347012c27e194798.jpg"
           },
           "fields": [
             {
               "name": "Hi!",
-              "value": "Have the bot say hello! **(Say ?hi)**"
+              "value": "Have the bot say hello to check and make sure that it's online and working. **(Say ?hi)**"
+            }
+          ]
+        }
+      })
+    } else if (category == "animals") {
+      message.channel.send({
+        "embed": {
+          "title": "**Lgbtstripes Commands **",
+          "color": 3426654,
+          "thumbnail": {
+            "url": "https://i.ibb.co/Qd897Py/b4844ea372818413347012c27e194798.jpg"
+          },
+          "fields": [
+            {
+              "name": "Kittens",
+              "value": "Have the bot send a variety of beautiful kittens. **(Say ?kitty)**"
             },
             {
-              "name": "Laugh",
-              "value": "Makes the bot send a laughing gif **(Say ?laugh)**"
+              "name": "Puppy",
+              "value": "Makes the bot send a variety of beautiful puppies. **(Say ?puppy)**"
             },
             {
-              "name": "You're gay",
-              "value": "Have the bot tell you about how he feels when you say that **(say ?you're gay)**"
+              "name": "Snakes",
+              "value": "Have the bot show you some lovely serpents. **(Say ?snek)**"
             },
             {
-              "name": "Homosexual",
-              "value": "Have the bot send you some quality gay **(say ?gay)**"
-            },
-            {
-              "name": "Frick you",
-              "value": "Have the bot tell you off for cursing **(say ?fuck you)**"
-            },
-            {
-              "name": "Goodnight!",
-              "value": "Have the bot wish you sweet dreams **(Say ?gn)**"
-            },
-            {
-              "name": "Ask for a hug!",
-              "value": "Have the bot give you a hug **(Say ?hug)**"
+              "name": "Frogs",
+              "value": "Have the bot send you some quality frog. **(Say ?frog)**"
             },
           ]
         }
@@ -496,7 +447,7 @@ if (message.content.slice(config.prefix.length).trim() == "inspiring") {
       message.channel.send({
         "embed": {
           "title": "**Lgbtstripes Commands **",
-          "color": 10038562,
+          "color": 15844367,
           "thumbnail": {
             "url": "https://i.ibb.co/Qd897Py/b4844ea372818413347012c27e194798.jpg"
           },
@@ -532,18 +483,6 @@ if (message.content.slice(config.prefix.length).trim() == "inspiring") {
           },
           "fields": [
             {
-              "name": "Kittens!",
-              "value": "Have the bot send you beautiful gifs of kittens! **(Say ?kitty)**"
-            },
-            {
-              "name": "Puppies!",
-              "value": "Have the bot send you beautiful gifs of Puppies! **(Say ?puppy)**"
-            },
-            {
-              "name": "Snek!",
-              "value": "Have the bot send you beautiful gifs of Snakes! **(Say ?snek)**"
-            },
-            {
               "name": "Go to sleep!",
               "value": "Have the bot tell you to go to sleep **(Say ?gts)**"
             },
@@ -556,8 +495,52 @@ if (message.content.slice(config.prefix.length).trim() == "inspiring") {
               "value": "Have the bot send you some quality asparagus baby pics **(Say ?asparagus)**"
             },
             {
-              "name": "Frogs!",
-              "value": "Have the bot send you some quality frog gifs! **(Say ?frog)**"
+              "name": "Laugh",
+              "value": "Makes the bot send a laughing gif **(Say ?laugh)**"
+            },
+            {
+              "name": "You're gay",
+              "value": "Have the bot tell you about how he feels when you say that **(say ?you're gay)**"
+            },
+            {
+              "name": "Homosexual",
+              "value": "Have the bot send you some quality gay **(say ?gay)**"
+            },
+            {
+              "name": "Frick you",
+              "value": "Have the bot tell you off for cursing **(say ?fuck you)**"
+            },
+            {
+              "name": "Goodnight!",
+              "value": "Have the bot wish you sweet dreams **(Say ?gn)**"
+            },
+            {
+              "name": "Ask for a hug!",
+              "value": "Have the bot give you a hug **(Say ?hug)**"
+            },
+            {
+              "name": "Random Question!",
+              "value": "Have the bot send a random question for you to answer. **(Say ?rq)**"
+            },
+            {
+              "name": "Game",
+              "value": "Have the bot anonymously make someone loose the game! **(Say ?g)**"
+            },
+            {
+              "name": "Leedle",
+              "value": "Have the bot do a good ole' leedle leedle. **(Say ?leedle)**"
+            },
+            {
+              "name": "Adios!",
+              "value": "Have the bot send a funny Adios card picture. **(Say ?adios)**"
+            },
+            {
+              "name": "Passive Aggressive Advice",
+              "value": "Have the bot give you some sarcastic/passive aggressive advice. **(Say ?advice)**"
+            },
+            {
+              "name": "Sleep well!",
+              "value": "Have the bot tell someone to sleep well. **(Say ?sw)**"
             },
             
         
