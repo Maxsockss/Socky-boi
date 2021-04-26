@@ -411,6 +411,9 @@ if (message.content.slice(config.prefix.length).trim() == "inspiring") {
             {
               "name": "Hi!",
               "value": "Have the bot say hello to check and make sure that it's online and working. **(Say ?hi)**"
+            },            {
+              "name": "Suggestion",
+              "value": "Have the bot present you with a form that allows you to submit a suggestion to be added to the bot. **(Say ?suggest)**"
             }
           ]
         }
