@@ -242,7 +242,13 @@ client.on("message", async message => {
     if (command == "bussin") {
       message.channel.send ("ayo this shit is b-b-b-bussin bussin.")
       } 
-
+      if (message.content.slice(config.prefix.length).trim() == "dino") {
+        message.channel.send (["https://ibb.co/p4YMhxm","https://ibb.co/r70xnPz","https://ibb.co/JrVDp5c","https://ibb.co/F0Sy5sm","https://ibb.co/cFkfhyh","https://ibb.co/w7Cbf2n","https://ibb.co/XZ7Jfqy","https://ibb.co/2k8xYJK","https://ibb.co/bdDjKZN"][Math.floor(Math.random()*9)]);
+      }
+      if (message.content.slice(config.prefix.length).trim() == "lq") {
+        message.channel.send (["https://ibb.co/QQ4JDn6","https://ibb.co/h2xJFzm","https://ibb.co/mJtszkW","https://ibb.co/jLhHw09","https://ibb.co/XDvSLbw","https://ibb.co/nDq3tms","https://ibb.co/vJxtHgk","https://ibb.co/51NDFRX","https://ibb.co/fpxZgCV","https://ibb.co/QmY4PD1","https://ibb.co/PFYSYj5","https://ibb.co/gRTFZL8","https://ibb.co/kmB3Gh3","https://ibb.co/GpPjs9N","https://ibb.co/MkwdLtC"][Math.floor(Math.random()*15
+        )]);
+      } 
 //support commands
 
 //hotlines
@@ -454,6 +460,10 @@ if (message.content.slice(config.prefix.length).trim() == "inspiring") {
               "name": "Frogs",
               "value": "Have the bot send you some quality frog. **(Say ?frog)**"
             },
+            {
+              "name": "Dinosaurs",
+              "value": "Have the bot send you some adorable dinosaurs. **(Say ?dino)**"
+            },
           ]
         }
       })
@@ -559,6 +569,10 @@ if (message.content.slice(config.prefix.length).trim() == "inspiring") {
             {
               "name": "Headpat",
               "value": "Have the bot give you a nice little headpat **(Say ?pat)**"
+            },
+            {
+              "name": "Low Quality",
+              "value": "Have the bot send some funny low quality anime pics.  **(Say ?lq)**"
             }
         
 
