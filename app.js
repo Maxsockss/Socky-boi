@@ -259,7 +259,7 @@ if (message.content.slice(config.prefix.length).trim() == "ihotlines") {
 }
 if (message.content.slice(config.prefix.length).trim() == "ahotlines") {
   message.channel.send({"embed": {  
-    "description": "[**Trevor project**](https://www.thetrevorproject.org/get-help-now/) \n In order to use the hotlines, just click on the one you'd like!" 
+    "description": "[**Trevor project**](https://www.thetrevorproject.org/get-help-now/) \n [**National Suicide Prevention Lifeline**- 800-273-8255]\n [**National Suicide Prevention Lifeline (Espanol)**- 888-628-9454] \n [**National Suicide Prevention Lifeline (Options for Deaf & HOH)**- 800-799-4889]\n [**Crisis Text Line**- Text HELLO to 741741 ]\n [**YouthLine**- Text teen2teen to 839863, or call 1-877-968-8491 ]\n [**Trans Lifeline **- 1-877-565-8860]\n In order to use the hotlines, just click on the one you'd like or call/text the number next to the corresponding hotline!" 
   }})
 }
 if (message.content.slice(config.prefix.length).trim() == "aushotlines") {
