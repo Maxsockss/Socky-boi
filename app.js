@@ -277,9 +277,28 @@ if (message.content.slice(config.prefix.length).trim() == "inspiring") {
       message.delete();
       console.log
       } 
-    if (command == "support") { 
-      message.channel.send ("<@&791517216364560424> I'd like some help please. Thank you so much in advance!");
-    }
+      if (command == "support") { 
+        message.channel.send ("<@&791517216364560424> I'd like some help please. Thank you so much in advance!");
+      }
+
+
+      ///PRONOUN TEST
+
+      if (command == "sheher") { 
+        message.channel.send (["She looks very pretty today, doesn't she?","Look at her go! She's so amazing.","She left her bag on the floor, but im supposed to meet up with her later to give it to her.","I wonder what she's going to do over the weekend.","She might not want to come over to my house, since her mom doesn't like her being around dogs.","Did she tell you about the homework?","I thought she said that her mom was throwing a party this sunday?","She does not like bunnies.","Lexi is her friend, right?","Earlier Lexi was playing chess with her and she laughed at how confused Lexi was.","She said that she prefers tea instead of coffee.","I'm not too sure how she would feel about a cat.","Didn't she say that her favorite color was red?","She has a really cool name, and it's so unique!","I hope she had fun at her moms birthday party!","She forgot her phone, i'll just have to give it to her tomorrow in first period.","She said she couldn't remember her locker code, so Victoria is going to ask the teacher for her.","Her favorite color is purple? She's so cool!","Awe, it's a shame that she couldn't make it, but I hope she can come next time!","This notebook is hers, so please don't touch it without her premission.","She laughed at her friends funny joke.", "She smiled at her mom.","Her birthday was today and she was going to have a big party.", "She had a practice with her team today.","She laughed as her friend made funny faces."][Math.floor(Math.random()*25)]);
+      }
+      if (command == "theythem") {
+        message.channel.send (["They look awesome today, dont they?","Look at them dance! They're so amazing.","They left their coat on the coatrack, but im supposed to meet up with them later to give it back.","I wonder where they're going this weekend.","They may not want to come over to my house, since they aren't comfortable around snakes.","Did they tell you about what happened yesterday?","What ever happened to their mom throwing them a party tomorrow?","They aren't a big fan of anime.","Max is still their friend right?","Earlier Brandon was playing ROBLOX with them and he said that they told him that they found this new cool game!","They said that they would much rather sit next to the window on an airplane.","I'm not too sure how they feel about having a snake as a pet.","Didn't they say that their favorite color was pink?","They have a really interesting name!","I hope they had fun at their friends party!","They totally forgot about their painting! I'll just take it home to dry then give it to them tomorrow.","They said that they had trouble with the Algebra homework, so Katie and Brandon are going to help them after school in the library.","Their hair color is purple, they just dyed it last night.","They weren't able to come to my party this time, but I hope they can come next time! It wasn't nearly as fun without them.","This sketchbook is theirs, you can't touch it without asking first.","Wow their friend gave them a new game. I hope they like it.","They won a trip to Disneyland. They’re packing their things now.","I know them, I made their cake for their birthday!","Veronica looked at them and smiled. Veronica loved their company.","They went to the movies with their friends today."][Math.floor(Math.random()*25)]);
+      }
+      if (command == "hehim") { 
+        message.channel.send (["He looks very handsome today, doesn't he?","Look at him go! He's so amazing.","He left his bag on the floor, but im supposed to meet up with him later to give it back.","I wonder what he's going to do over the weekend.","He might not want to come over to my house, since his mom doesn't like him being around dogs.","Did he tell you about the homework?","I thought he said that his mom was throwing a party this sunday?","He does not like bunnies.","Jay is his friend, right?","Earlier Lexi was playing chess with him and he laughed at how confused Lexi was.","He said that he prefers his coffee hot instead of iced.","I'm not too sure how he feels about cats.","Didn't he say that his favorite color was orange?","He has a really cool name!","I hope he had fun at his birthday party!","He left his notebook, i'll just have to give it to him tomorrow.","he said he can't remember his locker combination, so Lexi is going to ask the teacher for him.","His favorite color is Aquamarine? He's so cool!","Awe, it's a shame that he couldn't make it, but I hope he can come next time!","This notebook is his, please don't touch it without his premission.","He looked at his medals as he polished them.","His mother said he was at the store.","His friends planed a surprise party for him","He decided to make his famous pie that day","I think that he did great at his first dance recital."][Math.floor(Math.random()*25)]);
+      }
+      if (command == "shethey") { 
+        message.channel.send (["She looks very cool today, dont they?","Look at them go! She's so awesome at everything.","She left her bag on the floor, but im supposed to meet up with them tomorrow to give it back.","I wonder what they're going to do over her summer break.","I don't think they can come over to my house because her mom doesn't like the my dogs.","Did they ever ask you that question she had about the homework?","I thought She said that their mom was throwing her a party for their birthday?","She does not like their cats.","Jay is one of their close friends, right?","Earlier Ramona was playing Genshin Impact with them and Ramona was making fun of how long it took her to get to level 4.","She said that their mom isn't a big fan of energy drinks.","I'm not too sure how she feels about my cats, they may be allergic.","Didn't they say that her favorite color was a light purple?","She has a really cool name, I wonder what made them come up with it.","I hope she had fun at their birthday party!","They left their pencil case behind, so i'll just have to give her it next time i see them.","They said they are having trouble with the english homework, so Max is going to help her with it.","Her favorite color is a navy blue? That's such an interesting color for them to have as a favorite.","Awe, it's a shame that they couldn't show up to the party, but i'm sure she'll definately be there next time!","This notebook is hers, so you can't use it to take notes unless you ask them first."][Math.floor(Math.random()*20)]);
+      }
+      if (command == "hethey") { 
+        message.channel.send (["He looks pretty swagger, dont they?","Look at them sing! He's so good at it!.","He left his things on the floor of the science room, but im supposed to meet up with them this weekend to give it back.","I wonder what they have planned for his birthday.","They aren't allowed to come over to my house because his mom has to work that day.","Do you remember if they asked the teacher about his question during the test?","If I remember correctly, their name was inspired by his favorite show.","They do not like their drawings, he is trying to improve though.","Ace went to their party this weekend and he helped Ace get to know everyone.","I could have sworn just the other day they were playing Roblox and he told me that his favorite game was banned.","They said that he loves energy drinks, but their mom says they aren't allowed to drink them too often.","Do you know if they are allergic to cats? He never gave me a direct answer.","Didn't he say that one of their favorite colors were sky blue?","He has such a cool talent, I wonder where they learned how to do something like that.","I wonder if they like coffee- or maybe he just likes tea instead.","They sometimes leave his notebook behind, but it's alright because I can give it to them after school since me and him go to the library.","He said one of their favorite activities was coding a discord bot until he messed up and accidentally deleted a whole server.","He just lost the game, I wonder how they feel about that.","They couldn't come to the party? That's alright, maybe we can have another one that he can make it to.","Give them back their pencil. You didn't even ask him if you could use it before you took it."][Math.floor(Math.random()*20)]);
+      }
   
 ///warnings
   if (command == "warnings") {
@@ -378,44 +397,97 @@ if (message.content.slice(config.prefix.length).trim() == "inspiring") {
     message.reply("Successfully sent message to " + count + " users!");
   }
 
-  if (command == "lhelp") {
-   var category = undefined
-   if (args[0]) { 
-     category = args[0].trim().toLowerCase();
-    }
-    const allowedCategories = ["general", "fun", "admin","support","animals"]
-    if (!category || !allowedCategories.includes(category)) {
-      message.channel.send({
-        "embed": {
-          "title": "**Lgbtstripes Commands **",
-          "color": 10038562,
-          "thumbnail": {
-            "url": "https://i.ibb.co/Qd897Py/b4844ea372818413347012c27e194798.jpg"
-          },
-          "fields": [
-            {
-              "name": config.prefix + "lhelp general",
-              "value": "Have the bot list out the general commands!"
+
+  ///PRONOUN TEST
+  if (command == "pronountest") {
+    var category = undefined
+    if (args[0]) { 
+      category = args[0].trim().toLowerCase();
+     }
+     if (!category || !allowedCategories.includes(category)) {
+       message.channel.send({
+         "embed": {
+           "title": "**Pronoun Testing **",
+           "color": 65526,
+           "thumbnail": {
+             "url": "https://i.ibb.co/Qd897Py/b4844ea372818413347012c27e194798.jpg"
            },
-            {
-              "name": config.prefix + "lhelp fun",
-              "value": "Have the bot list out the fun commands!"
+           "fields": [
+             {
+               "name": config.prefix + "She Her",
+               "value": "Test out some She/Her Pronouns! \n (**Say ?sheher**)"
             },
             {
-              "name": config.prefix + "lhelp admin",
-              "value": "Have bot list out the admin commands!"
+              "name": config.prefix + "They Them",
+              "value": "Test out some They/Them Pronouns! \n (**Say ?theythem**)"
             },
             {
-              "name": config.prefix + "lhelp support",
-              "value": "Have bot list out the support commands!"
+              "name": config.prefix + "He Him",
+              "value": "Test out some He/Him Pronouns! \n (**Say ?hehim**)"
             },
             {
-              "name": config.prefix + "lhelp animals",
-              "value": "Have bot list out the commands that will result in animals!"
+              "name": config.prefix + "He They",
+              "value": "Test out some He/They Pronouns! \n (**Say ?hethey**)"
+            },
+            {
+              "name": config.prefix + "She They",
+              "value": "Test out some She/They Pronouns! \n (**Say ?shethey**)"
+            },
+            {
+              "name": config.prefix + "It Its",
+              "value": "Test out some It/Its Pronouns! \n (**Say ?itits** CURRENTLY NOT USABLE)"
+            },
+            {
+              "name": config.prefix + "Ze Zir",
+              "value": "Test out some Ze/Zir Pronouns! \n (**Say ?zezir** CURRENTLY NOT USABLE)"
+            },
+            {
+              "name": config.prefix + "Xe Xem",
+              "value": "Test out some Xe/Xem Pronouns! \n (**Say ?xexem**) CURRENTLY NOT USABLE"
             }
-          ]
-        }
-      })
+           ]
+         }
+       })
+     }}
+
+  if (command == "lhelp") {
+    var category = undefined
+    if (args[0]) { 
+      category = args[0].trim().toLowerCase();
+     }
+     const allowedCategories = ["general", "fun", "admin","support","animals"]
+     if (!category || !allowedCategories.includes(category)) {
+       message.channel.send({
+         "embed": {
+           "title": "**Lgbtstripes Commands **",
+           "color": 10038562,
+           "thumbnail": {
+             "url": "https://i.ibb.co/Qd897Py/b4844ea372818413347012c27e194798.jpg"
+           },
+           "fields": [
+             {
+               "name": config.prefix + "lhelp general",
+               "value": "Have the bot list out the general commands!"
+            },
+             {
+               "name": config.prefix + "lhelp fun",
+               "value": "Have the bot list out the fun commands!"
+             },
+             {
+               "name": config.prefix + "lhelp admin",
+               "value": "Have bot list out the admin commands!"
+             },
+             {
+               "name": config.prefix + "lhelp support",
+               "value": "Have bot list out the support commands!"
+             },
+             {
+               "name": config.prefix + "lhelp animals",
+               "value": "Have bot list out the commands that will result in animals!"
+             }
+           ]
+         }
+       })
     } else if (category == "general") {
       message.channel.send({
         "embed": {
@@ -573,7 +645,7 @@ if (message.content.slice(config.prefix.length).trim() == "inspiring") {
             {
               "name": "Low Quality",
               "value": "Have the bot send some funny low quality anime pics.  **(Say ?lq)**"
-            }
+      }
         
 
           ]
