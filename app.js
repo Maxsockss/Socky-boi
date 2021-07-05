@@ -165,6 +165,9 @@ client.on("message", async message => {
 
   //Misc fun commands//
   if (message.content.slice(config.prefix.length).trim() == "g") {
+    message.channel.send (["You just lost the game MWAHAHAHAHAHAH","Get rick rolled lololololol (also u lost the game)","Did someone say...GAME..? dang i lost again :("][Math.floor(Math.random()*3)]);
+  }
+  if (message.content.slice(config.prefix.length).trim() == ".g") {
     message.delete();
     message.channel.send ["You just lost the game MWAHAHAHAHAHAH"]
   }
