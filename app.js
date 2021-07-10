@@ -168,8 +168,13 @@ client.on("message", async message => {
     message.channel.send (["You just lost the game MWAHAHAHAHAHAH","Get rick rolled lololololol (also u lost the game)","Did someone say...GAME..? dang i lost again :("][Math.floor(Math.random()*3)]);
   }
     
-    if (command == "jaywantsfuckingvengance") {
-      message.channel.send ("You just lost the game MWAHAHAHAHAHAH")
+  if (command == "jaywantsfuckingvengance") {
+    message.channel.send ("You just lost the game MWAHAHAHAHAHAH")
+    message.delete();
+    console.log
+    } 
+    if (command == "jaylovesketchupwater") {
+      message.channel.send ("https://tenor.com/view/stick-bug-rick-roll-lol-gif-18118062 \n ps. GAEM")
       message.delete();
       console.log
       } 
