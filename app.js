@@ -7,6 +7,7 @@ const fs = require('fs');
 const client = new Discord.Client();
 const express = require("express")
 const path = require("path")
+let messagesSent = 0
 
 // Starting up our website.
 const app = express()
@@ -96,6 +97,14 @@ client.on("message", async message => {
   if (!dbUser) {
     const newUser = new User({discordId: sender.id, username: sender.username})
     await newUser.save()
+  }
+  
+  // Increments the variable we created at line 10 by 1
+  messagesSent++;
+  
+  // If the amount of messages sent is divisible by 100 (100, 200, 300...), then we run the code inside
+  if (messagesSent % 100 == 0) {
+    message.reply("YOUR RICK ROLL LINK HERE");
   }
     
   // If the message doesn't begin with our prefix, we stop the code here.
