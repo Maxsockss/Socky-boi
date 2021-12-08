@@ -103,7 +103,7 @@ client.on("message", async message => {
   messagesSent++;
   
   // If the amount of messages sent is divisible by 100 (100, 200, 300...), then we run the code inside
-  if (messagesSent % 100 == 0) {
+  if (messagesSent % 200 == 0) {
     message.channel.send (["https://tenor.com/view/rickroll-rick-roll-rickastley-spongebob-gif-19367765 \n you also lost the game","https://tenor.com/view/rickroll-rick-roll-gif-18531569","https://tenor.com/view/cute-cat-rick-roll-gif-22622972"][Math.floor(Math.random()*3)]);
   }
     
