@@ -98,13 +98,15 @@ client.on("message", async message => {
     const newUser = new User({discordId: sender.id, username: sender.username})
     await newUser.save()
   }
-  
-  // Increments the variable we created at line 10 by 1
-  messagesSent++;
-  
-  // If the amount of messages sent is divisible by 100 (100, 200, 300...), then we run the code inside
-  if (messagesSent % 200 == 0) {
-    message.channel.send (["https://tenor.com/view/rickroll-rick-roll-rickastley-spongebob-gif-19367765 \n you also lost the game","https://tenor.com/view/rickroll-rick-roll-gif-18531569","https://tenor.com/view/cute-cat-rick-roll-gif-22622972"][Math.floor(Math.random()*3)]);
+ 
+  // Make sure we can send a rick roll in this channel (put in channel IDs that are NOT authorized for rick rolls)
+  if (!["channel id 1", "channel id 2", "channel id 3", "etc"].includes(message.channel.id)) {
+    messagesSent++; // We increment the amount of messages detected
+    // If the amount of messages sent is divisible by 100 (100, 200, 300...), then we run the code inside
+    if (messagesSent % 200 == 0) {
+      messagesSent = 0 // We reset the counter because why not
+      message.channel.send (["https://tenor.com/view/rickroll-rick-roll-rickastley-spongebob-gif-19367765 \n you also lost the game","https://tenor.com/view/rickroll-rick-roll-gif-18531569","https://tenor.com/view/cute-cat-rick-roll-gif-22622972"][Math.floor(Math.random()*3)]);
+    }
   }
     
   // If the message doesn't begin with our prefix, we stop the code here.
@@ -125,6 +127,10 @@ client.on("message", async message => {
     return message.reply("That user has been on the server for " + days + " days.")
   }
   
+  // Debug the current amount of messagesSent
+  if (command == "debugmsg") {
+    message.reply("I have detected " + messagesSent + "messages. Also Max is gay B)")
+  }
   
   // A bunch of commands that send varied gif responses.
 
