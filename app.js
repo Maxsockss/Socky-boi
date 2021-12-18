@@ -100,10 +100,10 @@ client.on("message", async message => {
   }
  
   // Make sure we can send a rick roll in this channel (put in channel IDs that are NOT authorized for rick rolls)
-  if (!["channel id 1", "channel id 2", "channel id 3", "etc"].includes(message.channel.id)) {
+  if (!["791517219192438815", "791517218185150467", "791517218185150468", "882082209887035412","897290108603105292","791517218185150471","791517216604028931","866093976552996895","863638646266396732","792941743304605707","891524836604657754"].includes(message.channel.id)) {
     messagesSent++; // We increment the amount of messages detected
     // If the amount of messages sent is divisible by 100 (100, 200, 300...), then we run the code inside
-    if (messagesSent % 200 == 0) {
+    if (messagesSent % 300 == 0) {
       messagesSent = 0 // We reset the counter because why not
       message.channel.send (["https://tenor.com/view/rickroll-rick-roll-rickastley-spongebob-gif-19367765 \n you also lost the game","https://tenor.com/view/rickroll-rick-roll-gif-18531569","https://tenor.com/view/cute-cat-rick-roll-gif-22622972"][Math.floor(Math.random()*3)]);
     }
@@ -243,19 +243,19 @@ client.on("message", async message => {
   //Moderator exposing
 
   if (message.content.slice(config.prefix.length).trim() == "emax") {
-    message.channel.send (["https://ibb.co/9nSzs1W","https://ibb.co/G7vR9q9","https://ibb.co/jhzWM3H","https://ibb.co/sqb64mX","https://ibb.co/1m76GCx","https://ibb.co/vdjgz5N"][Math.floor(Math.random()*6)]);
+    message.channel.send (["https://ibb.co/9nSzs1W","https://ibb.co/G7vR9q9","https://ibb.co/jhzWM3H","https://ibb.co/sqb64mX","https://ibb.co/1m76GCx","https://ibb.co/vdjgz5N","https://ibb.co/bJyNv6Z","https://ibb.co/4TfQsH7","https://ibb.co/NTCg5C2","https://ibb.co/d6YDnVL \n https://ibb.co/FhtTfdG"][Math.floor(Math.random()*10)]);
   }
 
   if (message.content.slice(config.prefix.length).trim() == "elil") {
-    message.channel.send (["https://ibb.co/68mLvvg","https://ibb.co/kSM0z5N","https://ibb.co/M2f9nj6","https://ibb.co/MM9tcmS","https://ibb.co/D9V86XQ","https://ibb.co/McpK4Gk","https://ibb.co/5hxZS7q","https://ibb.co/fMjWqqp","https://ibb.co/0YGCLX2","https://ibb.co/Dt0VtBZ"][Math.floor(Math.random()*10)]);
+    message.channel.send (["https://ibb.co/68mLvvg","https://ibb.co/kSM0z5N","https://ibb.co/M2f9nj6","https://ibb.co/MM9tcmS","https://ibb.co/D9V86XQ","https://ibb.co/McpK4Gk","https://ibb.co/5hxZS7q","https://ibb.co/fMjWqqp","https://ibb.co/0YGCLX2","https://ibb.co/Dt0VtBZ","https://ibb.co/SNcf1Hf","https://ibb.co/nbHxdHf","https://ibb.co/Nm2Jxs0"][Math.floor(Math.random()*13)]);
   }
     
-  if (message.content.slice(config.prefix.length).trim() == "ecin") {
-    message.channel.send (["https://ibb.co/4sY5TfB","https://ibb.co/8XGXx1Q","https://ibb.co/DCppKC6","https://ibb.co/v32WkmF","https://ibb.co/NY22mWV","https://ibb.co/cvWN3FJ","https://ibb.co/qmGZ0p3","https://ibb.co/7gWV0N3","https://ibb.co/9r6mR8z","https://ibb.co/Q7wVKHJ","https://ibb.co/xqjysMp","https://ibb.co/kD4Y8xx","https://ibb.co/4P3nkt5" ][Math.floor(Math.random()*13
+  if (message.content.slice(config.prefix.length).trim() == "espades") {
+    message.channel.send (["https://ibb.co/4sY5TfB","https://ibb.co/8XGXx1Q","https://ibb.co/DCppKC6","https://ibb.co/v32WkmF","https://ibb.co/NY22mWV","https://ibb.co/cvWN3FJ","https://ibb.co/qmGZ0p3","https://ibb.co/7gWV0N3","https://ibb.co/9r6mR8z","https://ibb.co/Q7wVKHJ","https://ibb.co/xqjysMp","https://ibb.co/kD4Y8xx","https://ibb.co/4P3nkt5","https://ibb.co/mXsdx4x" ][Math.floor(Math.random()*14
     )]);
   }
 
-  if (message.content.slice(config.prefix.length).trim() == "ejasper") {
+  if (message.content.slice(config.prefix.length).trim() == "eej") {
     message.channel.send (["https://ibb.co/sbtyjGC","https://ibb.co/rfxFvGR","https://ibb.co/MRdy3TL","https://ibb.co/h8RdZQv","https://ibb.co/Ss2223j","https://ibb.co/g392Djv"][Math.floor(Math.random()*6
     )]);
   }
@@ -265,6 +265,10 @@ client.on("message", async message => {
   } 
   if (message.content.slice(config.prefix.length).trim() == "eketchup") {
     message.channel.send (["https://ibb.co/B6X5DbD","https://ibb.co/PcFPr8F","https://ibb.co/9yDb1Fq","https://ibb.co/8XVBwqZ"][Math.floor(Math.random()*4
+    )]);
+  } 
+  if (message.content.slice(config.prefix.length).trim() == "erobyn") {
+    message.channel.send (["https://ibb.co/1bLb5ZM","https://ibb.co/2Yznj8g"][Math.floor(Math.random()*2
     )]);
   } 
 
