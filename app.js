@@ -264,11 +264,11 @@ client.on("message", async message => {
     )]);
   } 
   if (message.content.slice(config.prefix.length).trim() == "eketchup") {
-    message.channel.send (["https://ibb.co/B6X5DbD","https://ibb.co/PcFPr8F","https://ibb.co/9yDb1Fq","https://ibb.co/8XVBwqZ"][Math.floor(Math.random()*4
+    message.channel.send (["https://ibb.co/B6X5DbD","https://ibb.co/PcFPr8F","https://ibb.co/9yDb1Fq","https://ibb.co/8XVBwqZ","https://ibb.co/1bLb5ZM"][Math.floor(Math.random()*5
     )]);
   } 
   if (message.content.slice(config.prefix.length).trim() == "erobyn") {
-    message.channel.send (["https://ibb.co/1bLb5ZM","https://ibb.co/2Yznj8g"][Math.floor(Math.random()*2
+    message.channel.send (["https://ibb.co/2Yznj8g"][Math.floor(Math.random()*1
     )]);
   } 
 
