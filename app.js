@@ -290,6 +290,10 @@ client.on("message", async message => {
         message.channel.send (["https://ibb.co/QQ4JDn6","https://ibb.co/h2xJFzm","https://ibb.co/mJtszkW","https://ibb.co/jLhHw09","https://ibb.co/XDvSLbw","https://ibb.co/nDq3tms","https://ibb.co/vJxtHgk","https://ibb.co/51NDFRX","https://ibb.co/fpxZgCV","https://ibb.co/QmY4PD1","https://ibb.co/PFYSYj5","https://ibb.co/gRTFZL8","https://ibb.co/kmB3Gh3","https://ibb.co/GpPjs9N","https://ibb.co/MkwdLtC"][Math.floor(Math.random()*15
         )]);
       } 
+
+      if (message.content.slice(config.prefix.length).trim() == "yuzu") {
+        message.channel.send (["https://ibb.co/yykNV7K","https://ibb.co/CQPHNnz","https://ibb.co/NtVDw6K","https://ibb.co/rsyZb4Y","https://ibb.co/4dbFWZ5","https://ibb.co/q0d5FZ5","https://ibb.co/wy8Jctz","https://ibb.co/3BQB2Fh","https://ibb.co/GM0kYM8","https://ibb.co/4WdH6kT","https://ibb.co/dWfKmhc","https://ibb.co/JpQJL1D","https://ibb.co/XWsmrL4","https://ibb.co/LYz4YCp","https://ibb.co/DtCBsFP","https://ibb.co/zHfVbXd","https://ibb.co/JxQSSd3","https://ibb.co/zHBMdMx","https://ibb.co/N1HGW6C","https://ibb.co/Y0xWHc4","https://ibb.co/zHBMdMx","https://ibb.co/9yrBXNN","https://ibb.co/x8q6gwb","https://ibb.co/kScD5NQ","https://ibb.co/P5n6HVF","https://ibb.co/tzFFGR8","https://ibb.co/f9ZQTCq","https://ibb.co/4tHLqxN","https://ibb.co/Pjyq15M","https://ibb.co/ncN3PgC","https://ibb.co/5RQ61Cm","https://ibb.co/f07mD2K","https://ibb.co/58GsCRR","https://ibb.co/T8XqHX2","https://ibb.co/4McrNts"][Math.floor(Math.random()*35)]);
+      }
 //support commands
 
 
